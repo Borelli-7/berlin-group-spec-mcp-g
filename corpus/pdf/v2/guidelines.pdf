@@ -1,0 +1,54 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 439 >>
+stream
+BT /F1 11 Tf 48 740 Td 16 TL
+(SYNTHETIC V2 IMPLEMENTATION GUIDELINES) Tj T*
+(Not an official Berlin Group specification. Test evidence only.) Tj T*
+(1. TRANSACTIONS) Tj T*
+(GET /accounts/{accountId}/transactions) Tj T*
+(The synthetic transaction endpoint returns account transactions.) Tj T*
+(Each synthetic transaction MUST include transactionId and status.) Tj T*
+(The synthetic bookingStatus accepts booked, pending, or both.) Tj T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 118 >>
+stream
+BT /F1 11 Tf 48 740 Td 16 TL
+(2. TEST SCOPE) Tj T*
+(These fixtures define no real Open Banking obligations.) Tj T*
+ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000000317 00000 n 
+0000000806 00000 n 
+0000000932 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1100
+%%EOF

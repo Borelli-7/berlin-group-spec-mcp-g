@@ -1,0 +1,16 @@
+# These acceptance criteria apply only to the synthetic test corpus.
+requirements:
+  - id: FIXTURE-OFV2-TRANSACTIONS-001
+    version: openfinance-v2
+    title: Synthetic transaction endpoint requirement
+    sources:
+      - source_id: fixture-v2-guidelines
+        locator: page:1
+      - source_id: fixture-v2-openapi
+        locator: path:/accounts/{accountId}/transactions
+    endpoints:
+      - path: /accounts/{accountId}/transactions
+        method: GET
+    acceptance_criteria:
+      - "Synthetic responses include transactionId and status."
+      - "Synthetic bookingStatus accepts booked, pending, or both."

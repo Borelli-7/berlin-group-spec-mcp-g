@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "berlin-group-spec": {
+      "type": "local",
+      "command": "/home/kaly-7/Dev/Personal/Borelli-7/mcp-bg/mcp-bg-gpt/target/release/bg-spec-mcp",
+      "args": [
+        "--config",
+        "/home/kaly-7/Dev/Personal/Borelli-7/mcp-bg/mcp-bg-gpt/config/config.toml"
+      ],
+      "env": {},
+      "tools": [
+        "search_specification",
+        "find_requirement",
+        "read_source",
+        "read_openapi_endpoint",
+        "read_openapi_schema",
+        "get_endpoint_requirements",
+        "trace_requirement",
+        "compare_v1_v2",
+        "list_sources",
+        "health"
+      ]
+    }
+  }
+}

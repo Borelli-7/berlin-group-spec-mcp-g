@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: SYNTHETIC transaction API V1 - not an official specification
+  version: "1.0"
+servers:
+  - url: https://example.invalid/v1
+security:
+  - bearerAuth: []
+paths:
+  /accounts/{accountId}/transactions:
+    parameters:
+      - $ref: '#/components/parameters/AccountId'
+    get:
+      operationId: getTransactions
+      summary: Read account transactions
+      description: Synthetic V1 contract for deterministic regression testing.
+      tags: [Accounts]
+      responses:
+        '200':
+          $ref: '#/components/responses/Transactions'
+components:
+  parameters:
+    AccountId:
+      name: accountId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    Transactions:
+      description: Synthetic transaction collection
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Transaction'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Transaction:
+      type: object
+      required: [transactionId]
+      properties:
+        transactionId:
+          type: string
+        status:
+          type: string
+          enum: [booked]
+        bookingDate:
+          type: string
+          format: date
+          nullable: true
+        amount:
+          $ref: '#/components/schemas/Amount'
+    Amount:
+      type: object
+      properties:
+        value:
+          type: string
+        currency:
+          type: string

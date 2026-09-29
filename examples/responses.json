@@ -1,0 +1,1757 @@
+{
+  "compare_v1_v2": {
+    "changes": [
+      {
+        "after": "Synthetic V2 contract for deterministic regression testing.",
+        "before": "Synthetic V1 contract for deterministic regression testing.",
+        "fact": "field modified",
+        "kind": "modified",
+        "location": "operation/description",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": "getTransactionsV2",
+        "before": "getTransactions",
+        "fact": "field modified",
+        "kind": "modified",
+        "location": "operation/operationId",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "bookingStatus",
+            "schema": {
+              "enum": [
+                "booked",
+                "pending",
+                "both"
+              ],
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
+        "before": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "fact": "field modified",
+        "kind": "modified",
+        "location": "operation/parameters",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": {
+          "description": "Invalid synthetic request"
+        },
+        "before": null,
+        "fact": "field added",
+        "kind": "added",
+        "location": "operation/responses/400",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": [
+          {
+            "url": "https://example.invalid/v2"
+          }
+        ],
+        "before": [
+          {
+            "url": "https://example.invalid/v1"
+          }
+        ],
+        "fact": "field modified",
+        "kind": "modified",
+        "location": "operation/servers",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "operation:GET:/accounts/{accountId}/transactions",
+            "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      }
+    ],
+    "compatibility_relevant_facts": "Structural facts only. No overall backward-compatibility verdict; array order, descriptions, and schema-name changes remain observable.",
+    "schema_changes": [
+      {
+        "after": "number",
+        "before": "string",
+        "fact": "property type changed",
+        "kind": "modified",
+        "location": "schemas/Amount/properties/value/type",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Amount",
+            "sha256": "6e8aa8b96fb9b6f5c55d6650cb87ed2a86d36aebf452d6a3abef66ff4b0011af",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Amount",
+            "sha256": "5c23f9325405ff4eb207ea71edaf6c8fdca9c350da0e005dafffaf83f641a333",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": [
+          "currency"
+        ],
+        "before": null,
+        "fact": "required changed",
+        "kind": "added",
+        "location": "schemas/Amount/required",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Amount",
+            "sha256": "6e8aa8b96fb9b6f5c55d6650cb87ed2a86d36aebf452d6a3abef66ff4b0011af",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Amount",
+            "sha256": "5c23f9325405ff4eb207ea71edaf6c8fdca9c350da0e005dafffaf83f641a333",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": "date-time",
+        "before": "date",
+        "fact": "format changed",
+        "kind": "modified",
+        "location": "schemas/Transaction/properties/bookingDate/format",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": null,
+        "before": true,
+        "fact": "nullable changed",
+        "kind": "removed",
+        "location": "schemas/Transaction/properties/bookingDate/nullable",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": {
+          "type": "string"
+        },
+        "before": null,
+        "fact": "property added",
+        "kind": "added",
+        "location": "schemas/Transaction/properties/creditorName",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": [
+          "booked",
+          "pending"
+        ],
+        "before": [
+          "booked"
+        ],
+        "fact": "enum changed",
+        "kind": "modified",
+        "location": "schemas/Transaction/properties/status/enum",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      },
+      {
+        "after": [
+          "transactionId",
+          "status"
+        ],
+        "before": [
+          "transactionId"
+        ],
+        "fact": "required changed",
+        "kind": "modified",
+        "location": "schemas/Transaction/required",
+        "sources": [
+          {
+            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
+            "source_id": "fixture-v1-openapi",
+            "version": "nextgenpsd2-v1"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "json:#/components/schemas/Transaction",
+            "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+        "kind": "openapi",
+        "locator": "operation:GET:/accounts/{accountId}/transactions",
+        "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
+        "source_id": "fixture-v1-openapi",
+        "version": "nextgenpsd2-v1"
+      },
+      {
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "operation:GET:/accounts/{accountId}/transactions",
+        "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+        "source_id": "fixture-v2-openapi",
+        "version": "openfinance-v2"
+      },
+      {
+        "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+        "kind": "openapi",
+        "locator": "json:#/components/schemas/Amount",
+        "sha256": "6e8aa8b96fb9b6f5c55d6650cb87ed2a86d36aebf452d6a3abef66ff4b0011af",
+        "source_id": "fixture-v1-openapi",
+        "version": "nextgenpsd2-v1"
+      },
+      {
+        "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+        "kind": "openapi",
+        "locator": "json:#/components/schemas/Transaction",
+        "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
+        "source_id": "fixture-v1-openapi",
+        "version": "nextgenpsd2-v1"
+      },
+      {
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "json:#/components/schemas/Amount",
+        "sha256": "5c23f9325405ff4eb207ea71edaf6c8fdca9c350da0e005dafffaf83f641a333",
+        "source_id": "fixture-v2-openapi",
+        "version": "openfinance-v2"
+      },
+      {
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "json:#/components/schemas/Transaction",
+        "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
+        "source_id": "fixture-v2-openapi",
+        "version": "openfinance-v2"
+      }
+    ],
+    "v1_operation": {
+      "contract": {
+        "description": "Synthetic V1 contract for deterministic regression testing.",
+        "method": "GET",
+        "operationId": "getTransactions",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "path": "/accounts/{accountId}/transactions",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Synthetic transaction collection"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "securitySchemes": {
+          "bearerAuth": {
+            "scheme": "bearer",
+            "type": "http"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://example.invalid/v1"
+          }
+        ],
+        "summary": "Read account transactions",
+        "tags": [
+          "Accounts"
+        ]
+      },
+      "description": "Synthetic V1 contract for deterministic regression testing.",
+      "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+      "kind": "openapi",
+      "locator": "operation:GET:/accounts/{accountId}/transactions",
+      "method": "GET",
+      "operationId": "getTransactions",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "accountId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ],
+      "path": "/accounts/{accountId}/transactions",
+      "referenced_schemas": [
+        "Transaction"
+      ],
+      "request_body": null,
+      "responses": {
+        "200": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/Transaction"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "description": "Synthetic transaction collection"
+        }
+      },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
+      "source_id": "fixture-v1-openapi",
+      "summary": "Read account transactions",
+      "tags": [
+        "Accounts"
+      ],
+      "version": "nextgenpsd2-v1"
+    },
+    "v2_operation": {
+      "contract": {
+        "description": "Synthetic V2 contract for deterministic regression testing.",
+        "method": "GET",
+        "operationId": "getTransactionsV2",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "bookingStatus",
+            "schema": {
+              "enum": [
+                "booked",
+                "pending",
+                "both"
+              ],
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
+        "path": "/accounts/{accountId}/transactions",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Synthetic transaction collection"
+          },
+          "400": {
+            "description": "Invalid synthetic request"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "securitySchemes": {
+          "bearerAuth": {
+            "scheme": "bearer",
+            "type": "http"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://example.invalid/v2"
+          }
+        ],
+        "summary": "Read account transactions",
+        "tags": [
+          "Accounts"
+        ]
+      },
+      "description": "Synthetic V2 contract for deterministic regression testing.",
+      "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+      "kind": "openapi",
+      "locator": "operation:GET:/accounts/{accountId}/transactions",
+      "method": "GET",
+      "operationId": "getTransactionsV2",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "accountId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "bookingStatus",
+          "schema": {
+            "enum": [
+              "booked",
+              "pending",
+              "both"
+            ],
+            "type": "string"
+          },
+          "style": "form"
+        }
+      ],
+      "path": "/accounts/{accountId}/transactions",
+      "referenced_schemas": [
+        "Transaction"
+      ],
+      "request_body": null,
+      "responses": {
+        "200": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/Transaction"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "description": "Synthetic transaction collection"
+        },
+        "400": {
+          "description": "Invalid synthetic request"
+        }
+      },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+      "source_id": "fixture-v2-openapi",
+      "summary": "Read account transactions",
+      "tags": [
+        "Accounts"
+      ],
+      "version": "openfinance-v2"
+    }
+  },
+  "find_requirement": {
+    "curated_requirements": [
+      {
+        "acceptance_criteria": [
+          "Synthetic responses include transactionId and status.",
+          "Synthetic bookingStatus accepts booked, pending, or both."
+        ],
+        "conflicts_with": [],
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/accounts/{accountId}/transactions"
+          }
+        ],
+        "id": "FIXTURE-OFV2-TRANSACTIONS-001",
+        "provenance": {
+          "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+          "kind": "requirements",
+          "locator": "requirement:FIXTURE-OFV2-TRANSACTIONS-001",
+          "sha256": "c4c7ea00ad054ac5ea25c03ea8cdf89061dd0f26e8089aed88235515bd31c7c2",
+          "source_id": "fixture-v2-requirements",
+          "version": "openfinance-v2"
+        },
+        "resolved_sources": [
+          {
+            "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+            "kind": "pdf",
+            "locator": "page:1",
+            "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
+            "source_id": "fixture-v2-guidelines",
+            "version": "openfinance-v2"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "path:/accounts/{accountId}/transactions",
+            "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ],
+        "sources": [
+          {
+            "locator": "page:1",
+            "source_id": "fixture-v2-guidelines"
+          },
+          {
+            "locator": "path:/accounts/{accountId}/transactions",
+            "source_id": "fixture-v2-openapi"
+          }
+        ],
+        "title": "Synthetic transaction endpoint requirement",
+        "version": "openfinance-v2"
+      }
+    ],
+    "discovered_evidence": [
+      {
+        "chunk_id": "950542bc4b54021cc2d132a84ea5a02e77975dd9c61df0afecd7dbaf4512b080",
+        "classification": "discovered evidence; not an authoritative requirement",
+        "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+        "kind": "requirements",
+        "locator": "requirement:FIXTURE-OFV2-TRANSACTIONS-001",
+        "page": null,
+        "relevance": 9.445862770080566,
+        "searchable": true,
+        "section": null,
+        "sha256": "c4c7ea00ad054ac5ea25c03ea8cdf89061dd0f26e8089aed88235515bd31c7c2",
+        "source_id": "fixture-v2-requirements",
+        "text": "{\"id\":\"FIXTURE-OFV2-TRANSACTIONS-001\",\"version\":\"openfinance-v2\",\"title\":\"Synthetic transaction endpoint requirement\",\"sources\":[{\"source_id\":\"fixture-v2-guidelines\",\"locator\":\"page:1\"},{\"source_id\":\"fixture-v2-openapi\",\"locator\":\"path:/accounts/{accountId}/transactions\"}],\"acceptance_criteria\":[\"Synthetic responses include transactionId and status.\",\"Synthetic bookingStatus accepts booked, pending, or both.\"],\"endpoints\":[{\"path\":\"/accounts/{accountId}/transactions\",\"method\":\"GET\"}],\"conflicts_with\":[]}",
+        "title": "Synthetic curated requirement mappings",
+        "version": "openfinance-v2"
+      },
+      {
+        "chunk_id": "55c78e69d927976cfede0c9944c6ba5154c38c62f4fa87c3c97cd384dbfdd30a",
+        "classification": "discovered evidence; not an authoritative requirement",
+        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "kind": "pdf",
+        "locator": "page:1:chars:103-350",
+        "page": 1,
+        "relevance": 2.4429001808166504,
+        "searchable": true,
+        "section": "1. TRANSACTIONS",
+        "sha256": "7249040aad77418301a03422593a5c4eec5d135074726402015ffa8752115de5",
+        "source_id": "fixture-v2-guidelines",
+        "text": "1. TRANSACTIONS\nGET /accounts/{accountId}/transactions\nThe synthetic transaction endpoint returns account transactions.\nEach synthetic transaction MUST include transactionId and status.\nThe synthetic bookingStatus accepts booked, pending, or both.",
+        "title": "Synthetic V2 implementation guidelines",
+        "version": "openfinance-v2"
+      },
+      {
+        "chunk_id": "ef195277e7a18ad5526a70fcea750c40e8e3be7ea9d2597ae3aebb260403d8c9",
+        "classification": "discovered evidence; not an authoritative requirement",
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "operation:GET:/accounts/{accountId}/transactions",
+        "page": null,
+        "relevance": 1.671072244644165,
+        "searchable": true,
+        "section": null,
+        "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+        "source_id": "fixture-v2-openapi",
+        "text": "{\"description\":\"Synthetic V2 contract for deterministic regression testing.\",\"method\":\"GET\",\"operationId\":\"getTransactionsV2\",\"parameters\":[{\"in\":\"path\",\"name\":\"accountId\",\"required\":true,\"schema\":{\"type\":\"string\"},\"style\":\"simple\"},{\"in\":\"query\",\"name\":\"bookingStatus\",\"schema\":{\"enum\":[\"booked\",\"pending\",\"both\"],\"type\":\"string\"},\"style\":\"form\"}],\"path\":\"/accounts/{accountId}/transactions\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"$ref\":\"#/components/schemas/Transaction\"},\"type\":\"array\"}}},\"description\":\"Synthetic transaction collection\"},\"400\":{\"description\":\"Invalid synthetic request\"}},\"security\":[{\"bearerAuth\":[]}],\"securitySchemes\":{\"bearerAuth\":{\"scheme\":\"bearer\",\"type\":\"http\"}},\"servers\":[{\"url\":\"https://example.invalid/v2\"}],\"summary\":\"Read account transactions\",\"tags\":[\"Accounts\"]}",
+        "title": "Synthetic V2 transaction API",
+        "version": "openfinance-v2"
+      },
+      {
+        "chunk_id": "508f3280ce4073bc23ccaf0d292c279cffca82eb4bad49ba0833a6638ccc298d",
+        "classification": "discovered evidence; not an authoritative requirement",
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "path:/accounts/{accountId}/transactions",
+        "page": null,
+        "relevance": 1.6441845893859863,
+        "searchable": true,
+        "section": null,
+        "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",
+        "source_id": "fixture-v2-openapi",
+        "text": "{\"GET\":{\"description\":\"Synthetic V2 contract for deterministic regression testing.\",\"method\":\"GET\",\"operationId\":\"getTransactionsV2\",\"parameters\":[{\"in\":\"path\",\"name\":\"accountId\",\"required\":true,\"schema\":{\"type\":\"string\"},\"style\":\"simple\"},{\"in\":\"query\",\"name\":\"bookingStatus\",\"schema\":{\"enum\":[\"booked\",\"pending\",\"both\"],\"type\":\"string\"},\"style\":\"form\"}],\"path\":\"/accounts/{accountId}/transactions\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"$ref\":\"#/components/schemas/Transaction\"},\"type\":\"array\"}}},\"description\":\"Synthetic transaction collection\"},\"400\":{\"description\":\"Invalid synthetic request\"}},\"security\":[{\"bearerAuth\":[]}],\"securitySchemes\":{\"bearerAuth\":{\"scheme\":\"bearer\",\"type\":\"http\"}},\"servers\":[{\"url\":\"https://example.invalid/v2\"}],\"summary\":\"Read account transactions\",\"tags\":[\"Accounts\"]}}",
+        "title": "Synthetic V2 transaction API",
+        "version": "openfinance-v2"
+      }
+    ],
+    "total_curated_matches": 1
+  },
+  "get_endpoint_requirements": {
+    "conflict_detection": "Only divergent OpenAPI contracts/schemas and explicit curated conflicts are detected. Prose contradictions are not inferred; an empty conflicts array is not proof of consistency.",
+    "conflicts": [],
+    "endpoint": {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transactions"
+    },
+    "openapi": [
+      {
+        "contract": {
+          "description": "Synthetic V2 contract for deterministic regression testing.",
+          "method": "GET",
+          "operationId": "getTransactionsV2",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "accountId",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "style": "simple"
+            },
+            {
+              "in": "query",
+              "name": "bookingStatus",
+              "schema": {
+                "enum": [
+                  "booked",
+                  "pending",
+                  "both"
+                ],
+                "type": "string"
+              },
+              "style": "form"
+            }
+          ],
+          "path": "/accounts/{accountId}/transactions",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/Transaction"
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "description": "Synthetic transaction collection"
+            },
+            "400": {
+              "description": "Invalid synthetic request"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "securitySchemes": {
+            "bearerAuth": {
+              "scheme": "bearer",
+              "type": "http"
+            }
+          },
+          "servers": [
+            {
+              "url": "https://example.invalid/v2"
+            }
+          ],
+          "summary": "Read account transactions",
+          "tags": [
+            "Accounts"
+          ]
+        },
+        "description": "Synthetic V2 contract for deterministic regression testing.",
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "operation:GET:/accounts/{accountId}/transactions",
+        "method": "GET",
+        "operationId": "getTransactionsV2",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "bookingStatus",
+            "schema": {
+              "enum": [
+                "booked",
+                "pending",
+                "both"
+              ],
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
+        "path": "/accounts/{accountId}/transactions",
+        "referenced_schemas": [
+          "Transaction"
+        ],
+        "request_body": null,
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Synthetic transaction collection"
+          },
+          "400": {
+            "description": "Invalid synthetic request"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+        "source_id": "fixture-v2-openapi",
+        "summary": "Read account transactions",
+        "tags": [
+          "Accounts"
+        ],
+        "version": "openfinance-v2"
+      }
+    ],
+    "related_evidence": [
+      {
+        "chunk_id": "55c78e69d927976cfede0c9944c6ba5154c38c62f4fa87c3c97cd384dbfdd30a",
+        "classification": "discovered evidence; not an authoritative requirement",
+        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "kind": "pdf",
+        "locator": "page:1:chars:103-350",
+        "page": 1,
+        "relevance": 8.134382247924805,
+        "searchable": true,
+        "section": "1. TRANSACTIONS",
+        "sha256": "7249040aad77418301a03422593a5c4eec5d135074726402015ffa8752115de5",
+        "source_id": "fixture-v2-guidelines",
+        "text": "1. TRANSACTIONS\nGET /accounts/{accountId}/transactions\nThe synthetic transaction endpoint returns account transactions.\nEach synthetic transaction MUST include transactionId and status.\nThe synthetic bookingStatus accepts booked, pending, or both.",
+        "title": "Synthetic V2 implementation guidelines",
+        "version": "openfinance-v2"
+      },
+      {
+        "chunk_id": "1b8dc07731845dbf0794299c9084762d56bf41b5002dc340b6828fd367180e78",
+        "classification": "curated source citation; relevance score not applicable",
+        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "kind": "pdf",
+        "locator": "page:1",
+        "page": 1,
+        "relevance": 0.0,
+        "searchable": false,
+        "section": null,
+        "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
+        "source_id": "fixture-v2-guidelines",
+        "text": "SYNTHETIC V2 IMPLEMENTATION GUIDELINES\nNot an official Berlin Group specification. Test evidence only.\n1. TRANSACTIONS\nGET /accounts/{accountId}/transactions\nThe synthetic transaction endpoint returns account transactions.\nEach synthetic transaction MUST include transactionId and status.\nThe synthetic bookingStatus accepts booked, pending, or both.",
+        "title": "Synthetic V2 implementation guidelines",
+        "version": "openfinance-v2"
+      }
+    ],
+    "related_evidence_query": "GET accounts accountId transactions getTransactionsV2 Read account transactions",
+    "requirements": [
+      {
+        "acceptance_criteria": [
+          "Synthetic responses include transactionId and status.",
+          "Synthetic bookingStatus accepts booked, pending, or both."
+        ],
+        "conflicts_with": [],
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/accounts/{accountId}/transactions"
+          }
+        ],
+        "id": "FIXTURE-OFV2-TRANSACTIONS-001",
+        "provenance": {
+          "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+          "kind": "requirements",
+          "locator": "requirement:FIXTURE-OFV2-TRANSACTIONS-001",
+          "sha256": "c4c7ea00ad054ac5ea25c03ea8cdf89061dd0f26e8089aed88235515bd31c7c2",
+          "source_id": "fixture-v2-requirements",
+          "version": "openfinance-v2"
+        },
+        "resolved_sources": [
+          {
+            "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+            "kind": "pdf",
+            "locator": "page:1",
+            "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
+            "source_id": "fixture-v2-guidelines",
+            "version": "openfinance-v2"
+          },
+          {
+            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "kind": "openapi",
+            "locator": "path:/accounts/{accountId}/transactions",
+            "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",
+            "source_id": "fixture-v2-openapi",
+            "version": "openfinance-v2"
+          }
+        ],
+        "sources": [
+          {
+            "locator": "page:1",
+            "source_id": "fixture-v2-guidelines"
+          },
+          {
+            "locator": "path:/accounts/{accountId}/transactions",
+            "source_id": "fixture-v2-openapi"
+          }
+        ],
+        "title": "Synthetic transaction endpoint requirement",
+        "version": "openfinance-v2"
+      }
+    ],
+    "schemas": [
+      {
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "json:#/components/schemas/Amount",
+        "name": "Amount",
+        "referenced_schemas": [],
+        "schema": {
+          "properties": {
+            "currency": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "currency"
+          ],
+          "type": "object"
+        },
+        "sha256": "5c23f9325405ff4eb207ea71edaf6c8fdca9c350da0e005dafffaf83f641a333",
+        "source_id": "fixture-v2-openapi",
+        "version": "openfinance-v2"
+      },
+      {
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "json:#/components/schemas/Transaction",
+        "name": "Transaction",
+        "referenced_schemas": [
+          "Amount"
+        ],
+        "schema": {
+          "properties": {
+            "amount": {
+              "$ref": "#/components/schemas/Amount"
+            },
+            "bookingDate": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "creditorName": {
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "booked",
+                "pending"
+              ],
+              "type": "string"
+            },
+            "transactionId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transactionId",
+            "status"
+          ],
+          "type": "object"
+        },
+        "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
+        "source_id": "fixture-v2-openapi",
+        "version": "openfinance-v2"
+      }
+    ],
+    "sources": [
+      {
+        "authority": "test",
+        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "indexed_status": "indexed",
+        "kind": "pdf",
+        "locator": "document",
+        "manifest_sha256": "7a0569cb112c36f005d5fb1b9186dcdb5fa74f23a029aff64e2d09edfb4f342c",
+        "ocr_required_pages": [],
+        "path": "pdf/v2/guidelines.pdf",
+        "precedence": 0,
+        "sha256": "1f18275bf5abb1371071dd42fc830beb505eace440b2e634a2720a24e767822b",
+        "source_id": "fixture-v2-guidelines",
+        "title": "Synthetic V2 implementation guidelines",
+        "version": "openfinance-v2"
+      },
+      {
+        "authority": "test",
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "indexed_status": "indexed",
+        "kind": "openapi",
+        "locator": "document",
+        "manifest_sha256": "8bb63200af48ba4ef8511b48aba5697717927d48c6e7b38b9ec297beaa4a611b",
+        "ocr_required_pages": [],
+        "path": "openapi/v2/transactions.yaml",
+        "precedence": 0,
+        "sha256": "bb6244dd266d41f88256eca5abe3d4b5396caa490dbea44a1af5daa95f344513",
+        "source_id": "fixture-v2-openapi",
+        "title": "Synthetic V2 transaction API",
+        "version": "openfinance-v2"
+      },
+      {
+        "authority": "test",
+        "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+        "indexed_status": "indexed",
+        "kind": "requirements",
+        "locator": "document",
+        "manifest_sha256": "7581caec294340d1e7f807c765258256d34a79a086d80285116d402e0cc3dbcb",
+        "ocr_required_pages": [],
+        "path": "requirements/requirements.yaml",
+        "precedence": 0,
+        "sha256": "d2cdc359555edb996bbdfa2af51d641c78ae7f502b5b9f348cab9a3510383bc8",
+        "source_id": "fixture-v2-requirements",
+        "title": "Synthetic curated requirement mappings",
+        "version": "openfinance-v2"
+      }
+    ]
+  },
+  "health": {
+    "counts": {
+      "chunks": 23,
+      "documents": 5,
+      "operations": 2,
+      "requirements": 1,
+      "schemas": 4
+    },
+    "generation": "b8348e6f0da0d5c21bb4df04b0d5836b258b161725c05842e00193a25de67781",
+    "ocr_required": [],
+    "status": "ok"
+  },
+  "list_sources": {
+    "sources": [
+      {
+        "authority": "test",
+        "document_id": "a053cf9c5187e659dfa005fe1cb459e5609ffa5e7e42d43147e4dfd71f98b162",
+        "indexed_status": "indexed",
+        "kind": "pdf",
+        "locator": "document",
+        "manifest_sha256": "93a913696eef4ce8e378e4a35bf3e5807aeaf1e8849368f179572d8520f908c1",
+        "ocr_required_pages": [],
+        "path": "pdf/v1/guidelines.pdf",
+        "precedence": 0,
+        "sha256": "358b7861d8fc8a3bea8757a446f933c8144dbde196d0dc65cbcf8930da78ef5a",
+        "source_id": "fixture-v1-guidelines",
+        "title": "Synthetic V1 implementation guidelines",
+        "version": "nextgenpsd2-v1"
+      },
+      {
+        "authority": "test",
+        "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+        "indexed_status": "indexed",
+        "kind": "openapi",
+        "locator": "document",
+        "manifest_sha256": "99060aa651b6ea4c881a48c9062ba2e032f4af648701e06258231bc78287aa33",
+        "ocr_required_pages": [],
+        "path": "openapi/v1/transactions.yaml",
+        "precedence": 0,
+        "sha256": "56f6b348f83dc6f823ffcf330ab401d7ef09d2dacecb848b59fb141d258c0cb6",
+        "source_id": "fixture-v1-openapi",
+        "title": "Synthetic V1 transaction API",
+        "version": "nextgenpsd2-v1"
+      },
+      {
+        "authority": "test",
+        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "indexed_status": "indexed",
+        "kind": "pdf",
+        "locator": "document",
+        "manifest_sha256": "7a0569cb112c36f005d5fb1b9186dcdb5fa74f23a029aff64e2d09edfb4f342c",
+        "ocr_required_pages": [],
+        "path": "pdf/v2/guidelines.pdf",
+        "precedence": 0,
+        "sha256": "1f18275bf5abb1371071dd42fc830beb505eace440b2e634a2720a24e767822b",
+        "source_id": "fixture-v2-guidelines",
+        "title": "Synthetic V2 implementation guidelines",
+        "version": "openfinance-v2"
+      },
+      {
+        "authority": "test",
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "indexed_status": "indexed",
+        "kind": "openapi",
+        "locator": "document",
+        "manifest_sha256": "8bb63200af48ba4ef8511b48aba5697717927d48c6e7b38b9ec297beaa4a611b",
+        "ocr_required_pages": [],
+        "path": "openapi/v2/transactions.yaml",
+        "precedence": 0,
+        "sha256": "bb6244dd266d41f88256eca5abe3d4b5396caa490dbea44a1af5daa95f344513",
+        "source_id": "fixture-v2-openapi",
+        "title": "Synthetic V2 transaction API",
+        "version": "openfinance-v2"
+      },
+      {
+        "authority": "test",
+        "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+        "indexed_status": "indexed",
+        "kind": "requirements",
+        "locator": "document",
+        "manifest_sha256": "7581caec294340d1e7f807c765258256d34a79a086d80285116d402e0cc3dbcb",
+        "ocr_required_pages": [],
+        "path": "requirements/requirements.yaml",
+        "precedence": 0,
+        "sha256": "d2cdc359555edb996bbdfa2af51d641c78ae7f502b5b9f348cab9a3510383bc8",
+        "source_id": "fixture-v2-requirements",
+        "title": "Synthetic curated requirement mappings",
+        "version": "openfinance-v2"
+      }
+    ]
+  },
+  "read_openapi_endpoint": {
+    "contract": {
+      "description": "Synthetic V2 contract for deterministic regression testing.",
+      "method": "GET",
+      "operationId": "getTransactionsV2",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "accountId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "bookingStatus",
+          "schema": {
+            "enum": [
+              "booked",
+              "pending",
+              "both"
+            ],
+            "type": "string"
+          },
+          "style": "form"
+        }
+      ],
+      "path": "/accounts/{accountId}/transactions",
+      "responses": {
+        "200": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/Transaction"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "description": "Synthetic transaction collection"
+        },
+        "400": {
+          "description": "Invalid synthetic request"
+        }
+      },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "securitySchemes": {
+        "bearerAuth": {
+          "scheme": "bearer",
+          "type": "http"
+        }
+      },
+      "servers": [
+        {
+          "url": "https://example.invalid/v2"
+        }
+      ],
+      "summary": "Read account transactions",
+      "tags": [
+        "Accounts"
+      ]
+    },
+    "description": "Synthetic V2 contract for deterministic regression testing.",
+    "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+    "kind": "openapi",
+    "locator": "operation:GET:/accounts/{accountId}/transactions",
+    "method": "GET",
+    "operationId": "getTransactionsV2",
+    "parameters": [
+      {
+        "in": "path",
+        "name": "accountId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "style": "simple"
+      },
+      {
+        "in": "query",
+        "name": "bookingStatus",
+        "schema": {
+          "enum": [
+            "booked",
+            "pending",
+            "both"
+          ],
+          "type": "string"
+        },
+        "style": "form"
+      }
+    ],
+    "path": "/accounts/{accountId}/transactions",
+    "referenced_schemas": [
+      "Transaction"
+    ],
+    "request_body": null,
+    "responses": {
+      "200": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "items": {
+                "$ref": "#/components/schemas/Transaction"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "description": "Synthetic transaction collection"
+      },
+      "400": {
+        "description": "Invalid synthetic request"
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+    "source_id": "fixture-v2-openapi",
+    "summary": "Read account transactions",
+    "tags": [
+      "Accounts"
+    ],
+    "version": "openfinance-v2"
+  },
+  "read_openapi_schema": {
+    "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+    "kind": "openapi",
+    "locator": "json:#/components/schemas/Transaction",
+    "name": "Transaction",
+    "referenced_schemas": [
+      "Amount"
+    ],
+    "schema": {
+      "properties": {
+        "amount": {
+          "$ref": "#/components/schemas/Amount"
+        },
+        "bookingDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "creditorName": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "booked",
+            "pending"
+          ],
+          "type": "string"
+        },
+        "transactionId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "transactionId",
+        "status"
+      ],
+      "type": "object"
+    },
+    "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
+    "source_id": "fixture-v2-openapi",
+    "version": "openfinance-v2"
+  },
+  "read_source": {
+    "content": [
+      {
+        "chunk_id": "1b8dc07731845dbf0794299c9084762d56bf41b5002dc340b6828fd367180e78",
+        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "kind": "pdf",
+        "locator": "page:1",
+        "page": 1,
+        "searchable": false,
+        "section": null,
+        "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
+        "source_id": "fixture-v2-guidelines",
+        "text": "SYNTHETIC V2 IMPLEMENTATION GUIDELINES\nNot an official Berlin Group specification. Test evidence only.\n1. TRANSACTIONS\nGET /accounts/{accountId}/transactions\nThe synthetic transaction endpoint returns account transactions.\nEach synthetic transaction MUST include transactionId and status.\nThe synthetic bookingStatus accepts booked, pending, or both.",
+        "title": "Synthetic V2 implementation guidelines",
+        "version": "openfinance-v2"
+      }
+    ],
+    "content_semantics": "indexed extracted text / normalized JSON, not original PDF bytes",
+    "exact_location": "page:1",
+    "source": {
+      "authority": "test",
+      "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+      "indexed_status": "indexed",
+      "kind": "pdf",
+      "locator": "document",
+      "manifest_sha256": "7a0569cb112c36f005d5fb1b9186dcdb5fa74f23a029aff64e2d09edfb4f342c",
+      "ocr_required_pages": [],
+      "path": "pdf/v2/guidelines.pdf",
+      "precedence": 0,
+      "sha256": "1f18275bf5abb1371071dd42fc830beb505eace440b2e634a2720a24e767822b",
+      "source_id": "fixture-v2-guidelines",
+      "title": "Synthetic V2 implementation guidelines",
+      "version": "openfinance-v2"
+    }
+  },
+  "search_specification": {
+    "results": [
+      {
+        "chunk_id": "55c78e69d927976cfede0c9944c6ba5154c38c62f4fa87c3c97cd384dbfdd30a",
+        "classification": "discovered evidence; not an authoritative requirement",
+        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "kind": "pdf",
+        "locator": "page:1:chars:103-350",
+        "page": 1,
+        "relevance": 3.7491517066955566,
+        "searchable": true,
+        "section": "1. TRANSACTIONS",
+        "sha256": "7249040aad77418301a03422593a5c4eec5d135074726402015ffa8752115de5",
+        "source_id": "fixture-v2-guidelines",
+        "text": "1. TRANSACTIONS\nGET /accounts/{accountId}/transactions\nThe synthetic transaction endpoint returns account transactions.\nEach synthetic transaction MUST include transactionId and status.\nThe synthetic bookingStatus accepts booked, pending, or both.",
+        "title": "Synthetic V2 implementation guidelines",
+        "version": "openfinance-v2"
+      }
+    ]
+  },
+  "trace_requirement": {
+    "acceptance_criteria": [
+      "Synthetic responses include transactionId and status.",
+      "Synthetic bookingStatus accepts booked, pending, or both."
+    ],
+    "endpoints": [
+      {
+        "contract": {
+          "description": "Synthetic V2 contract for deterministic regression testing.",
+          "method": "GET",
+          "operationId": "getTransactionsV2",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "accountId",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "style": "simple"
+            },
+            {
+              "in": "query",
+              "name": "bookingStatus",
+              "schema": {
+                "enum": [
+                  "booked",
+                  "pending",
+                  "both"
+                ],
+                "type": "string"
+              },
+              "style": "form"
+            }
+          ],
+          "path": "/accounts/{accountId}/transactions",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/Transaction"
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "description": "Synthetic transaction collection"
+            },
+            "400": {
+              "description": "Invalid synthetic request"
+            }
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "securitySchemes": {
+            "bearerAuth": {
+              "scheme": "bearer",
+              "type": "http"
+            }
+          },
+          "servers": [
+            {
+              "url": "https://example.invalid/v2"
+            }
+          ],
+          "summary": "Read account transactions",
+          "tags": [
+            "Accounts"
+          ]
+        },
+        "description": "Synthetic V2 contract for deterministic regression testing.",
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "operation:GET:/accounts/{accountId}/transactions",
+        "method": "GET",
+        "operationId": "getTransactionsV2",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "bookingStatus",
+            "schema": {
+              "enum": [
+                "booked",
+                "pending",
+                "both"
+              ],
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
+        "path": "/accounts/{accountId}/transactions",
+        "referenced_schemas": [
+          "Transaction"
+        ],
+        "request_body": null,
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Synthetic transaction collection"
+          },
+          "400": {
+            "description": "Invalid synthetic request"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
+        "source_id": "fixture-v2-openapi",
+        "summary": "Read account transactions",
+        "tags": [
+          "Accounts"
+        ],
+        "version": "openfinance-v2"
+      }
+    ],
+    "related_evidence": [
+      {
+        "chunk_id": "1b8dc07731845dbf0794299c9084762d56bf41b5002dc340b6828fd367180e78",
+        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "kind": "pdf",
+        "locator": "page:1",
+        "page": 1,
+        "searchable": false,
+        "section": null,
+        "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
+        "source_id": "fixture-v2-guidelines",
+        "text": "SYNTHETIC V2 IMPLEMENTATION GUIDELINES\nNot an official Berlin Group specification. Test evidence only.\n1. TRANSACTIONS\nGET /accounts/{accountId}/transactions\nThe synthetic transaction endpoint returns account transactions.\nEach synthetic transaction MUST include transactionId and status.\nThe synthetic bookingStatus accepts booked, pending, or both.",
+        "title": "Synthetic V2 implementation guidelines",
+        "version": "openfinance-v2"
+      },
+      {
+        "chunk_id": "508f3280ce4073bc23ccaf0d292c279cffca82eb4bad49ba0833a6638ccc298d",
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "path:/accounts/{accountId}/transactions",
+        "page": null,
+        "searchable": true,
+        "section": null,
+        "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",
+        "source_id": "fixture-v2-openapi",
+        "text": "{\"GET\":{\"description\":\"Synthetic V2 contract for deterministic regression testing.\",\"method\":\"GET\",\"operationId\":\"getTransactionsV2\",\"parameters\":[{\"in\":\"path\",\"name\":\"accountId\",\"required\":true,\"schema\":{\"type\":\"string\"},\"style\":\"simple\"},{\"in\":\"query\",\"name\":\"bookingStatus\",\"schema\":{\"enum\":[\"booked\",\"pending\",\"both\"],\"type\":\"string\"},\"style\":\"form\"}],\"path\":\"/accounts/{accountId}/transactions\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"$ref\":\"#/components/schemas/Transaction\"},\"type\":\"array\"}}},\"description\":\"Synthetic transaction collection\"},\"400\":{\"description\":\"Invalid synthetic request\"}},\"security\":[{\"bearerAuth\":[]}],\"securitySchemes\":{\"bearerAuth\":{\"scheme\":\"bearer\",\"type\":\"http\"}},\"servers\":[{\"url\":\"https://example.invalid/v2\"}],\"summary\":\"Read account transactions\",\"tags\":[\"Accounts\"]}}",
+        "title": "Synthetic V2 transaction API",
+        "version": "openfinance-v2"
+      }
+    ],
+    "requirement": {
+      "acceptance_criteria": [
+        "Synthetic responses include transactionId and status.",
+        "Synthetic bookingStatus accepts booked, pending, or both."
+      ],
+      "conflicts_with": [],
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/accounts/{accountId}/transactions"
+        }
+      ],
+      "id": "FIXTURE-OFV2-TRANSACTIONS-001",
+      "provenance": {
+        "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+        "kind": "requirements",
+        "locator": "requirement:FIXTURE-OFV2-TRANSACTIONS-001",
+        "sha256": "c4c7ea00ad054ac5ea25c03ea8cdf89061dd0f26e8089aed88235515bd31c7c2",
+        "source_id": "fixture-v2-requirements",
+        "version": "openfinance-v2"
+      },
+      "resolved_sources": [
+        {
+          "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+          "kind": "pdf",
+          "locator": "page:1",
+          "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
+          "source_id": "fixture-v2-guidelines",
+          "version": "openfinance-v2"
+        },
+        {
+          "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+          "kind": "openapi",
+          "locator": "path:/accounts/{accountId}/transactions",
+          "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",
+          "source_id": "fixture-v2-openapi",
+          "version": "openfinance-v2"
+        }
+      ],
+      "sources": [
+        {
+          "locator": "page:1",
+          "source_id": "fixture-v2-guidelines"
+        },
+        {
+          "locator": "path:/accounts/{accountId}/transactions",
+          "source_id": "fixture-v2-openapi"
+        }
+      ],
+      "title": "Synthetic transaction endpoint requirement",
+      "version": "openfinance-v2"
+    },
+    "schemas": [
+      {
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "json:#/components/schemas/Amount",
+        "name": "Amount",
+        "referenced_schemas": [],
+        "schema": {
+          "properties": {
+            "currency": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "currency"
+          ],
+          "type": "object"
+        },
+        "sha256": "5c23f9325405ff4eb207ea71edaf6c8fdca9c350da0e005dafffaf83f641a333",
+        "source_id": "fixture-v2-openapi",
+        "version": "openfinance-v2"
+      },
+      {
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "json:#/components/schemas/Transaction",
+        "name": "Transaction",
+        "referenced_schemas": [
+          "Amount"
+        ],
+        "schema": {
+          "properties": {
+            "amount": {
+              "$ref": "#/components/schemas/Amount"
+            },
+            "bookingDate": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "creditorName": {
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "booked",
+                "pending"
+              ],
+              "type": "string"
+            },
+            "transactionId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transactionId",
+            "status"
+          ],
+          "type": "object"
+        },
+        "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
+        "source_id": "fixture-v2-openapi",
+        "version": "openfinance-v2"
+      }
+    ],
+    "specification_sources": [
+      {
+        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "kind": "pdf",
+        "locator": "page:1",
+        "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
+        "source_id": "fixture-v2-guidelines",
+        "version": "openfinance-v2"
+      },
+      {
+        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "kind": "openapi",
+        "locator": "path:/accounts/{accountId}/transactions",
+        "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",
+        "source_id": "fixture-v2-openapi",
+        "version": "openfinance-v2"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+# All paths are resolved relative to this configuration file.
+corpus_dir = "../corpus"
+data_dir = "../data"
+manifest = "manifest.yaml"
+chunk_chars = 6000
+chunk_overlap = 500
+max_document_bytes = 134217728
+v1 = "nextgenpsd2-v1"
+v2 = "openfinance-v2"

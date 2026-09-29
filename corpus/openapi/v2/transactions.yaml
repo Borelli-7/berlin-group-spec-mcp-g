@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  title: SYNTHETIC transaction API V2 - not an official specification
+  version: "2.0"
+servers:
+  - url: https://example.invalid/v2
+security:
+  - bearerAuth: []
+paths:
+  /accounts/{accountId}/transactions:
+    parameters:
+      - $ref: '#/components/parameters/AccountId'
+    get:
+      operationId: getTransactionsV2
+      summary: Read account transactions
+      description: Synthetic V2 contract for deterministic regression testing.
+      tags: [Accounts]
+      parameters:
+        - name: bookingStatus
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [booked, pending, both]
+      responses:
+        '200':
+          $ref: '#/components/responses/Transactions'
+        '400':
+          description: Invalid synthetic request
+components:
+  parameters:
+    AccountId:
+      name: accountId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    Transactions:
+      description: Synthetic transaction collection
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Transaction'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Transaction:
+      type: object
+      required: [transactionId, status]
+      properties:
+        transactionId:
+          type: string
+        status:
+          type: string
+          enum: [booked, pending]
+        bookingDate:
+          type: string
+          format: date-time
+          nullable: false
+        amount:
+          $ref: '#/components/schemas/Amount'
+        creditorName:
+          type: string
+    Amount:
+      type: object
+      required: [currency]
+      properties:
+        value:
+          type: number
+        currency:
+          type: string

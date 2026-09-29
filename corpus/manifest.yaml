@@ -1,0 +1,37 @@
+# Synthetic regression fixtures, NOT official Berlin Group requirements.
+sources:
+  - id: fixture-v1-openapi
+    kind: openapi
+    version: nextgenpsd2-v1
+    authority: test
+    precedence: 0
+    title: Synthetic V1 transaction API
+    path: openapi/v1/transactions.yaml
+  - id: fixture-v2-openapi
+    kind: openapi
+    version: openfinance-v2
+    authority: test
+    precedence: 0
+    title: Synthetic V2 transaction API
+    path: openapi/v2/transactions.yaml
+  - id: fixture-v1-guidelines
+    kind: pdf
+    version: nextgenpsd2-v1
+    authority: test
+    precedence: 0
+    title: Synthetic V1 implementation guidelines
+    path: pdf/v1/guidelines.pdf
+  - id: fixture-v2-guidelines
+    kind: pdf
+    version: openfinance-v2
+    authority: test
+    precedence: 0
+    title: Synthetic V2 implementation guidelines
+    path: pdf/v2/guidelines.pdf
+  - id: fixture-v2-requirements
+    kind: requirements
+    version: openfinance-v2
+    authority: test
+    precedence: 0
+    title: Synthetic curated requirement mappings
+    path: requirements/requirements.yaml

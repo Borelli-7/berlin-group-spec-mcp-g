@@ -1,0 +1,69 @@
+[
+  {
+    "name": "get_endpoint_requirements",
+    "arguments": {
+      "version": "openfinance-v2",
+      "path": "/accounts/{accountId}/transactions",
+      "method": "GET"
+    }
+  },
+  {
+    "name": "read_openapi_endpoint",
+    "arguments": {
+      "version": "openfinance-v2",
+      "path": "/accounts/{accountId}/transactions",
+      "method": "GET"
+    }
+  },
+  {
+    "name": "trace_requirement",
+    "arguments": {
+      "requirement_id": "FIXTURE-OFV2-TRANSACTIONS-001"
+    }
+  },
+  {
+    "name": "read_source",
+    "arguments": {
+      "source_id": "fixture-v2-guidelines",
+      "locator": "page:1"
+    }
+  },
+  {
+    "name": "compare_v1_v2",
+    "arguments": {
+      "path": "/accounts/{accountId}/transactions",
+      "method": "GET"
+    }
+  },
+  {
+    "name": "read_openapi_schema",
+    "arguments": {
+      "version": "openfinance-v2",
+      "name": "Transaction"
+    }
+  },
+  {
+    "name": "search_specification",
+    "arguments": {
+      "query": "transactions",
+      "version": "openfinance-v2",
+      "kind": "pdf",
+      "limit": 10
+    }
+  },
+  {
+    "name": "find_requirement",
+    "arguments": {
+      "query": "FIXTURE-OFV2-TRANSACTIONS-001",
+      "version": "openfinance-v2"
+    }
+  },
+  {
+    "name": "list_sources",
+    "arguments": {}
+  },
+  {
+    "name": "health",
+    "arguments": {}
+  }
+]
