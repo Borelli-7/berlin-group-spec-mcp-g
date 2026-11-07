@@ -1,4 +1,4 @@
-use bg_spec_core::*;
+use bg_spec_core::{Document, Error, EvidenceChunk, Result, SourceLocator, sha256};
 
 pub fn chunk_text(
     document: &Document,
@@ -114,6 +114,9 @@ pub fn evidence(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use bg_spec_core::{
+        DocumentAuthority, DocumentKind, IndexedStatus, Provenance, SpecificationVersion,
+    };
     fn document() -> Document {
         Document {
             provenance: Provenance {

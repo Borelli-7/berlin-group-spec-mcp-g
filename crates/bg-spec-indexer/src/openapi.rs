@@ -1,12 +1,18 @@
 use crate::chunking::{chunk_text, evidence};
 use bg_spec_core::{
+    Config, Document, Error, IndexedDocument, OpenApiOperation, OpenApiSchema, Result,
+    SourceLocator,
     comparison::{pointer_escape, schema_references},
-    *,
+    sha256,
 };
 use serde_json::{Value, json};
 use std::collections::{BTreeMap, BTreeSet};
 
-pub fn parse_openapi(document: Document, bytes: &[u8], config: &Config) -> Result<IndexedDocument> {
+pub fn parse_openapi(
+    document: &Document,
+    bytes: &[u8],
+    config: &Config,
+) -> Result<IndexedDocument> {
     let yaml =
         std::str::from_utf8(bytes).map_err(|e| Error::Invalid(format!("OpenAPI UTF-8: {e}")))?;
     let api: openapiv3::OpenAPI =
@@ -25,7 +31,7 @@ pub fn parse_openapi(document: Document, bytes: &[u8], config: &Config) -> Resul
         .ok_or_else(|| Error::Invalid("OpenAPI paths must be an object".into()))?;
     add_unit(
         &mut indexed,
-        &document,
+        document,
         &root["info"],
         "openapi:info",
         config,
@@ -118,12 +124,12 @@ pub fn parse_openapi(document: Document, bytes: &[u8], config: &Config) -> Resul
                 referenced_schemas: schema_references(&contract),
                 contract: contract.clone(),
             });
-            add_unit(&mut indexed, &document, &contract, &locator, config)?;
+            add_unit(&mut indexed, document, &contract, &locator, config)?;
             path_operations.insert(method.to_ascii_uppercase(), contract);
         }
         add_unit(
             &mut indexed,
-            &document,
+            document,
             &serde_json::to_value(path_operations)?,
             &format!("path:{path}"),
             config,
@@ -152,7 +158,7 @@ pub fn parse_openapi(document: Document, bytes: &[u8], config: &Config) -> Resul
                         schema: value.clone(),
                     });
                 }
-                add_unit(&mut indexed, &document, &value, &locator, config)?;
+                add_unit(&mut indexed, document, &value, &locator, config)?;
             }
         }
     }

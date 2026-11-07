@@ -1,5 +1,5 @@
 use crate::{SqliteCatalog, TantivySearch};
-use bg_spec_core::*;
+use bg_spec_core::{CatalogRepository, Config, Error, Result, SpecificationService};
 use std::{
     path::{Path, PathBuf},
     sync::Arc,
@@ -63,7 +63,7 @@ impl Snapshot {
         let search = self.search.clone();
         let actual = tokio::task::spawn_blocking(move || search.chunk_ids())
             .await
-            .map_err(|e| Error::Storage(e.to_string()))??;
+            .map_err(Error::storage)??;
         if actual != expected {
             return Err(Error::Integrity(
                 "search/catalog chunk identities differ".into(),

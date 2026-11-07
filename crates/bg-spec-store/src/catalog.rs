@@ -1,5 +1,8 @@
 use async_trait::async_trait;
-use bg_spec_core::*;
+use bg_spec_core::{
+    CatalogRepository, Document, Error, EvidenceChunk, IndexedDocument, IndexedStatus,
+    OpenApiOperation, OpenApiSchema, Provenance, Requirement, Result, sha256,
+};
 use serde::{Serialize, de::DeserializeOwned};
 use serde_json::{Value, json};
 use sqlx::{
@@ -11,9 +14,6 @@ use std::path::Path;
 pub const FORMAT_VERSION: &str = "1";
 static MIGRATOR: sqlx::migrate::Migrator = sqlx::migrate!("./migrations");
 
-fn storage(error: impl std::fmt::Display) -> Error {
-    Error::Storage(error.to_string())
-}
 fn decode<T: DeserializeOwned>(rows: Vec<String>) -> Result<Vec<T>> {
     rows.into_iter()
         .map(|row| serde_json::from_str(&row).map_err(Error::from))
@@ -39,13 +39,13 @@ impl SqliteCatalog {
             .max_connections(4)
             .connect_with(options)
             .await
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         let result = Self { pool };
         let format: Option<String> =
             sqlx::query_scalar("SELECT value FROM metadata WHERE key='format_version'")
                 .fetch_optional(&result.pool)
                 .await
-                .map_err(storage)?;
+                .map_err(Error::storage)?;
         if format.as_deref() != Some(FORMAT_VERSION) {
             return Err(Error::Integrity(
                 "unsupported catalog format; re-index".into(),
@@ -64,8 +64,8 @@ impl SqliteCatalog {
             .max_connections(1)
             .connect_with(options)
             .await
-            .map_err(storage)?;
-        MIGRATOR.run(&pool).await.map_err(storage)?;
+            .map_err(Error::storage)?;
+        MIGRATOR.run(&pool).await.map_err(Error::storage)?;
         for (key, value) in [
             ("format_version", FORMAT_VERSION),
             ("generation", generation),
@@ -75,7 +75,7 @@ impl SqliteCatalog {
                 .bind(value)
                 .execute(&pool)
                 .await
-                .map_err(storage)?;
+                .map_err(Error::storage)?;
         }
         Ok(Self { pool })
     }
@@ -85,7 +85,7 @@ impl SqliteCatalog {
             .document
             .as_ref()
             .ok_or_else(|| Error::Integrity("missing document".into()))?;
-        let mut tx = self.pool.begin().await.map_err(storage)?;
+        let mut tx = self.pool.begin().await.map_err(Error::storage)?;
         sqlx::query("INSERT INTO documents(source_id,version,kind,sha256,data) VALUES (?,?,?,?,?)")
             .bind(&document.provenance.source_id)
             .bind(&document.provenance.version.0)
@@ -94,7 +94,7 @@ impl SqliteCatalog {
             .bind(serde_json::to_string(document)?)
             .execute(&mut *tx)
             .await
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         for chunk in &indexed.chunks {
             sqlx::query(
                 "INSERT INTO chunks(chunk_id,source_id,locator,searchable,data) VALUES (?,?,?,?,?)",
@@ -106,12 +106,12 @@ impl SqliteCatalog {
             .bind(serde_json::to_string(chunk)?)
             .execute(&mut *tx)
             .await
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         }
         for operation in &indexed.operations {
             sqlx::query("INSERT INTO openapi_operations(source_id,version,path,method,data) VALUES (?,?,?,?,?)")
                 .bind(&operation.provenance.source_id).bind(&operation.provenance.version.0).bind(&operation.path)
-                .bind(&operation.method).bind(serde_json::to_string(operation)?).execute(&mut *tx).await.map_err(storage)?;
+                .bind(&operation.method).bind(serde_json::to_string(operation)?).execute(&mut *tx).await.map_err(Error::storage)?;
         }
         for schema in &indexed.schemas {
             sqlx::query(
@@ -123,14 +123,14 @@ impl SqliteCatalog {
             .bind(serde_json::to_string(schema)?)
             .execute(&mut *tx)
             .await
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         }
-        tx.commit().await.map_err(storage)?;
+        tx.commit().await.map_err(Error::storage)?;
         Ok(())
     }
 
     pub async fn write_requirements(&self, requirements: &[Requirement]) -> Result<()> {
-        let mut tx = self.pool.begin().await.map_err(storage)?;
+        let mut tx = self.pool.begin().await.map_err(Error::storage)?;
         for requirement in requirements {
             sqlx::query("INSERT INTO requirements(id,source_id,version,data) VALUES (?,?,?,?)")
                 .bind(&requirement.mapping.id)
@@ -139,14 +139,14 @@ impl SqliteCatalog {
                 .bind(serde_json::to_string(requirement)?)
                 .execute(&mut *tx)
                 .await
-                .map_err(storage)?;
+                .map_err(Error::storage)?;
             for source in &requirement.resolved_sources {
                 sqlx::query("INSERT INTO requirement_sources(requirement_id,source_id,locator,data) VALUES (?,?,?,?)")
                     .bind(&requirement.mapping.id).bind(&source.source_id).bind(&source.locator.0)
-                    .bind(serde_json::to_string(source)?).execute(&mut *tx).await.map_err(storage)?;
+                    .bind(serde_json::to_string(source)?).execute(&mut *tx).await.map_err(Error::storage)?;
             }
         }
-        tx.commit().await.map_err(storage)?;
+        tx.commit().await.map_err(Error::storage)?;
         Ok(())
     }
 
@@ -157,7 +157,7 @@ impl SqliteCatalog {
                 .bind(source)
                 .fetch_all(&self.pool)
                 .await
-                .map_err(storage)?,
+                .map_err(Error::storage)?,
         )?;
         let operations = decode(
             sqlx::query_scalar(
@@ -166,14 +166,14 @@ impl SqliteCatalog {
             .bind(source)
             .fetch_all(&self.pool)
             .await
-            .map_err(storage)?,
+            .map_err(Error::storage)?,
         )?;
         let schemas = decode(
             sqlx::query_scalar("SELECT data FROM openapi_schemas WHERE source_id=? ORDER BY name")
                 .bind(source)
                 .fetch_all(&self.pool)
                 .await
-                .map_err(storage)?,
+                .map_err(Error::storage)?,
         )?;
         Ok(IndexedDocument {
             document: Some(document),
@@ -188,7 +188,7 @@ impl SqliteCatalog {
             sqlx::query_scalar("SELECT data FROM chunks WHERE searchable=1 ORDER BY chunk_id")
                 .fetch_all(&self.pool)
                 .await
-                .map_err(storage)?,
+                .map_err(Error::storage)?,
         )
     }
 
@@ -196,18 +196,18 @@ impl SqliteCatalog {
         sqlx::query_scalar("SELECT value FROM metadata WHERE key='generation'")
             .fetch_one(&self.pool)
             .await
-            .map_err(storage)
+            .map_err(Error::storage)
     }
 
     pub async fn doctor(&self) -> Result<Value> {
         let integrity: String = sqlx::query_scalar("PRAGMA integrity_check")
             .fetch_one(&self.pool)
             .await
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         let foreign_keys = sqlx::query("PRAGMA foreign_key_check")
             .fetch_all(&self.pool)
             .await
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         if integrity != "ok" || !foreign_keys.is_empty() {
             return Err(Error::Integrity("SQLite consistency check failed".into()));
         }
@@ -309,7 +309,7 @@ impl SqliteCatalog {
             .await
         {
             Err(sqlx::Error::Database(error)) if error.code().as_deref() == Some("8") => Ok(()),
-            Err(error) => Err(storage(error)),
+            Err(error) => Err(Error::storage(error)),
             Ok(_) => Err(Error::Integrity("catalog is writable".into())),
         }
     }
@@ -319,7 +319,7 @@ impl SqliteCatalog {
             .bind(value)
             .fetch_optional(&self.pool)
             .await
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         serde_json::from_str(&data.ok_or_else(|| Error::NotFound(value.into()))?)
             .map_err(Error::from)
     }
@@ -332,7 +332,7 @@ impl CatalogRepository for SqliteCatalog {
             sqlx::query_scalar("SELECT data FROM documents ORDER BY source_id")
                 .fetch_all(&self.pool)
                 .await
-                .map_err(storage)?,
+                .map_err(Error::storage)?,
         )
     }
     async fn document(&self, source: &str) -> Result<Document> {
@@ -348,7 +348,7 @@ impl CatalogRepository for SqliteCatalog {
             .bind(locator)
             .fetch_all(&self.pool)
             .await
-            .map_err(storage)?,
+            .map_err(Error::storage)?,
         )
     }
     async fn chunk(&self, id: &str) -> Result<EvidenceChunk> {
@@ -362,7 +362,7 @@ impl CatalogRepository for SqliteCatalog {
         method: &str,
     ) -> Result<Vec<OpenApiOperation>> {
         decode(sqlx::query_scalar("SELECT data FROM openapi_operations WHERE version=? AND path=? AND method=? ORDER BY source_id")
-            .bind(version).bind(path).bind(method).fetch_all(&self.pool).await.map_err(storage)?)
+            .bind(version).bind(path).bind(method).fetch_all(&self.pool).await.map_err(Error::storage)?)
     }
     async fn schema(&self, source: &str, name: &str) -> Result<OpenApiSchema> {
         let rows = self.schemas_for_source(source, name).await?;
@@ -379,7 +379,7 @@ impl CatalogRepository for SqliteCatalog {
             .bind(name)
             .fetch_all(&self.pool)
             .await
-            .map_err(storage)?,
+            .map_err(Error::storage)?,
         )
     }
     async fn requirements(&self, version: Option<&str>) -> Result<Vec<Requirement>> {
@@ -391,7 +391,7 @@ impl CatalogRepository for SqliteCatalog {
             .bind(version)
             .fetch_all(&self.pool)
             .await
-            .map_err(storage)?,
+            .map_err(Error::storage)?,
         )
     }
     async fn requirement(&self, id: &str) -> Result<Requirement> {
@@ -408,7 +408,7 @@ impl CatalogRepository for SqliteCatalog {
             requirements: i64,
         }
         let counts: Counts = sqlx::query_as("SELECT (SELECT count(*) FROM documents) AS documents, (SELECT count(*) FROM chunks WHERE searchable=1) AS chunks, (SELECT count(*) FROM openapi_operations) AS operations, (SELECT count(*) FROM openapi_schemas) AS schemas, (SELECT count(*) FROM requirements) AS requirements")
-            .fetch_one(&self.pool).await.map_err(storage)?;
+            .fetch_one(&self.pool).await.map_err(Error::storage)?;
         let ocr: Vec<_> = self
             .documents()
             .await?
@@ -430,7 +430,7 @@ impl SqliteCatalog {
                 .bind(name)
                 .fetch_all(&self.pool)
                 .await
-                .map_err(storage)?,
+                .map_err(Error::storage)?,
         )
     }
 }

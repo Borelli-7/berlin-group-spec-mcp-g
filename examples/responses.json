@@ -9,7 +9,7 @@
         "location": "operation/description",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
@@ -17,7 +17,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
@@ -34,7 +34,7 @@
         "location": "operation/operationId",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
@@ -42,7 +42,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
@@ -92,7 +92,7 @@
         "location": "operation/parameters",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
@@ -100,7 +100,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
@@ -119,7 +119,7 @@
         "location": "operation/responses/400",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
@@ -127,7 +127,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
@@ -152,7 +152,7 @@
         "location": "operation/servers",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
@@ -160,7 +160,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "operation:GET:/accounts/{accountId}/transactions",
             "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
@@ -180,7 +180,7 @@
         "location": "schemas/Amount/properties/value/type",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Amount",
             "sha256": "6e8aa8b96fb9b6f5c55d6650cb87ed2a86d36aebf452d6a3abef66ff4b0011af",
@@ -188,7 +188,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Amount",
             "sha256": "5c23f9325405ff4eb207ea71edaf6c8fdca9c350da0e005dafffaf83f641a333",
@@ -207,7 +207,7 @@
         "location": "schemas/Amount/required",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Amount",
             "sha256": "6e8aa8b96fb9b6f5c55d6650cb87ed2a86d36aebf452d6a3abef66ff4b0011af",
@@ -215,7 +215,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Amount",
             "sha256": "5c23f9325405ff4eb207ea71edaf6c8fdca9c350da0e005dafffaf83f641a333",
@@ -232,7 +232,7 @@
         "location": "schemas/Transaction/properties/bookingDate/format",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
@@ -240,7 +240,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
@@ -257,7 +257,7 @@
         "location": "schemas/Transaction/properties/bookingDate/nullable",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
@@ -265,7 +265,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
@@ -284,7 +284,7 @@
         "location": "schemas/Transaction/properties/creditorName",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
@@ -292,7 +292,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
@@ -314,7 +314,7 @@
         "location": "schemas/Transaction/properties/status/enum",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
@@ -322,7 +322,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
@@ -344,7 +344,7 @@
         "location": "schemas/Transaction/required",
         "sources": [
           {
-            "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+            "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
@@ -352,7 +352,7 @@
             "version": "nextgenpsd2-v1"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "json:#/components/schemas/Transaction",
             "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
@@ -364,7 +364,7 @@
     ],
     "sources": [
       {
-        "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+        "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
         "kind": "openapi",
         "locator": "operation:GET:/accounts/{accountId}/transactions",
         "sha256": "6d463e787ab664b8cddedfd42010bc12e716bf1ba41f60ca48bcd59e5fc2c0d3",
@@ -372,7 +372,7 @@
         "version": "nextgenpsd2-v1"
       },
       {
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "operation:GET:/accounts/{accountId}/transactions",
         "sha256": "c91946be3f91e3826c501cda26519d9b8db06653c60a60691e350ed0d7b6890a",
@@ -380,7 +380,7 @@
         "version": "openfinance-v2"
       },
       {
-        "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+        "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
         "kind": "openapi",
         "locator": "json:#/components/schemas/Amount",
         "sha256": "6e8aa8b96fb9b6f5c55d6650cb87ed2a86d36aebf452d6a3abef66ff4b0011af",
@@ -388,7 +388,7 @@
         "version": "nextgenpsd2-v1"
       },
       {
-        "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+        "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
         "kind": "openapi",
         "locator": "json:#/components/schemas/Transaction",
         "sha256": "35ec994dd0caf91f09542e81c62a65c81a12ef6377e73bf83c1e49cd8eb42de6",
@@ -396,7 +396,7 @@
         "version": "nextgenpsd2-v1"
       },
       {
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "json:#/components/schemas/Amount",
         "sha256": "5c23f9325405ff4eb207ea71edaf6c8fdca9c350da0e005dafffaf83f641a333",
@@ -404,7 +404,7 @@
         "version": "openfinance-v2"
       },
       {
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "json:#/components/schemas/Transaction",
         "sha256": "87898ebd771c781d1d48b953af83ec6f93176545e79c2c58477c83edfcaa536c",
@@ -466,7 +466,7 @@
         ]
       },
       "description": "Synthetic V1 contract for deterministic regression testing.",
-      "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+      "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
       "kind": "openapi",
       "locator": "operation:GET:/accounts/{accountId}/transactions",
       "method": "GET",
@@ -585,7 +585,7 @@
         ]
       },
       "description": "Synthetic V2 contract for deterministic regression testing.",
-      "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+      "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
       "kind": "openapi",
       "locator": "operation:GET:/accounts/{accountId}/transactions",
       "method": "GET",
@@ -667,7 +667,7 @@
         ],
         "id": "FIXTURE-OFV2-TRANSACTIONS-001",
         "provenance": {
-          "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+          "document_id": "36f25b3567762a9d5bfd681c6795c756f61841aa265879f6a8551a1c1197f888",
           "kind": "requirements",
           "locator": "requirement:FIXTURE-OFV2-TRANSACTIONS-001",
           "sha256": "c4c7ea00ad054ac5ea25c03ea8cdf89061dd0f26e8089aed88235515bd31c7c2",
@@ -676,7 +676,7 @@
         },
         "resolved_sources": [
           {
-            "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+            "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
             "kind": "pdf",
             "locator": "page:1",
             "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
@@ -684,7 +684,7 @@
             "version": "openfinance-v2"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "path:/accounts/{accountId}/transactions",
             "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",
@@ -708,9 +708,9 @@
     ],
     "discovered_evidence": [
       {
-        "chunk_id": "950542bc4b54021cc2d132a84ea5a02e77975dd9c61df0afecd7dbaf4512b080",
+        "chunk_id": "2f5f40e61bf79e75b8908e619d276117d8f1fa6f83b0f22a4fac43e18bfa98e6",
         "classification": "discovered evidence; not an authoritative requirement",
-        "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+        "document_id": "36f25b3567762a9d5bfd681c6795c756f61841aa265879f6a8551a1c1197f888",
         "kind": "requirements",
         "locator": "requirement:FIXTURE-OFV2-TRANSACTIONS-001",
         "page": null,
@@ -724,9 +724,9 @@
         "version": "openfinance-v2"
       },
       {
-        "chunk_id": "55c78e69d927976cfede0c9944c6ba5154c38c62f4fa87c3c97cd384dbfdd30a",
+        "chunk_id": "1cd939b03b70f63703d42e9f2caea22d173488e5a43866cff9a318f2b905eb48",
         "classification": "discovered evidence; not an authoritative requirement",
-        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
         "kind": "pdf",
         "locator": "page:1:chars:103-350",
         "page": 1,
@@ -740,9 +740,9 @@
         "version": "openfinance-v2"
       },
       {
-        "chunk_id": "ef195277e7a18ad5526a70fcea750c40e8e3be7ea9d2597ae3aebb260403d8c9",
+        "chunk_id": "f88f7d3470b4e0d9c9c16904074feb4fd11e02b552dc98881a85a347933cd67b",
         "classification": "discovered evidence; not an authoritative requirement",
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "operation:GET:/accounts/{accountId}/transactions",
         "page": null,
@@ -756,9 +756,9 @@
         "version": "openfinance-v2"
       },
       {
-        "chunk_id": "508f3280ce4073bc23ccaf0d292c279cffca82eb4bad49ba0833a6638ccc298d",
+        "chunk_id": "c5ce7bc6082bdd741131554e29875250699ad4df637265439598311368203df5",
         "classification": "discovered evidence; not an authoritative requirement",
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "path:/accounts/{accountId}/transactions",
         "page": null,
@@ -852,7 +852,7 @@
           ]
         },
         "description": "Synthetic V2 contract for deterministic regression testing.",
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "operation:GET:/accounts/{accountId}/transactions",
         "method": "GET",
@@ -920,9 +920,9 @@
     ],
     "related_evidence": [
       {
-        "chunk_id": "55c78e69d927976cfede0c9944c6ba5154c38c62f4fa87c3c97cd384dbfdd30a",
+        "chunk_id": "1cd939b03b70f63703d42e9f2caea22d173488e5a43866cff9a318f2b905eb48",
         "classification": "discovered evidence; not an authoritative requirement",
-        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
         "kind": "pdf",
         "locator": "page:1:chars:103-350",
         "page": 1,
@@ -936,9 +936,9 @@
         "version": "openfinance-v2"
       },
       {
-        "chunk_id": "1b8dc07731845dbf0794299c9084762d56bf41b5002dc340b6828fd367180e78",
+        "chunk_id": "7632529e8025c48cf59c92c496a2b78d329b73a6f63cfb0afdef04bd83286bcc",
         "classification": "curated source citation; relevance score not applicable",
-        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
         "kind": "pdf",
         "locator": "page:1",
         "page": 1,
@@ -968,7 +968,7 @@
         ],
         "id": "FIXTURE-OFV2-TRANSACTIONS-001",
         "provenance": {
-          "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+          "document_id": "36f25b3567762a9d5bfd681c6795c756f61841aa265879f6a8551a1c1197f888",
           "kind": "requirements",
           "locator": "requirement:FIXTURE-OFV2-TRANSACTIONS-001",
           "sha256": "c4c7ea00ad054ac5ea25c03ea8cdf89061dd0f26e8089aed88235515bd31c7c2",
@@ -977,7 +977,7 @@
         },
         "resolved_sources": [
           {
-            "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+            "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
             "kind": "pdf",
             "locator": "page:1",
             "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
@@ -985,7 +985,7 @@
             "version": "openfinance-v2"
           },
           {
-            "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+            "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
             "kind": "openapi",
             "locator": "path:/accounts/{accountId}/transactions",
             "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",
@@ -1009,7 +1009,7 @@
     ],
     "schemas": [
       {
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "json:#/components/schemas/Amount",
         "name": "Amount",
@@ -1033,7 +1033,7 @@
         "version": "openfinance-v2"
       },
       {
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "json:#/components/schemas/Transaction",
         "name": "Transaction",
@@ -1077,11 +1077,11 @@
     "sources": [
       {
         "authority": "test",
-        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
         "indexed_status": "indexed",
         "kind": "pdf",
         "locator": "document",
-        "manifest_sha256": "7a0569cb112c36f005d5fb1b9186dcdb5fa74f23a029aff64e2d09edfb4f342c",
+        "manifest_sha256": "7053e55f6af1cdc88a17cb6d44cb20033040e3fab444ecab876ba28b9a902649",
         "ocr_required_pages": [],
         "path": "pdf/v2/guidelines.pdf",
         "precedence": 0,
@@ -1092,11 +1092,11 @@
       },
       {
         "authority": "test",
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "indexed_status": "indexed",
         "kind": "openapi",
         "locator": "document",
-        "manifest_sha256": "8bb63200af48ba4ef8511b48aba5697717927d48c6e7b38b9ec297beaa4a611b",
+        "manifest_sha256": "3554c75dae26f3de18e446a3e686e2cf2d0af865879c17f6f65a0fec3f52034d",
         "ocr_required_pages": [],
         "path": "openapi/v2/transactions.yaml",
         "precedence": 0,
@@ -1107,11 +1107,11 @@
       },
       {
         "authority": "test",
-        "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+        "document_id": "36f25b3567762a9d5bfd681c6795c756f61841aa265879f6a8551a1c1197f888",
         "indexed_status": "indexed",
         "kind": "requirements",
         "locator": "document",
-        "manifest_sha256": "7581caec294340d1e7f807c765258256d34a79a086d80285116d402e0cc3dbcb",
+        "manifest_sha256": "bc6eab75b9acc85e49cd5de61fddcdc4445a371d60ff4410e6a4da01f835c327",
         "ocr_required_pages": [],
         "path": "requirements/requirements.yaml",
         "precedence": 0,
@@ -1130,7 +1130,7 @@
       "requirements": 1,
       "schemas": 4
     },
-    "generation": "b8348e6f0da0d5c21bb4df04b0d5836b258b161725c05842e00193a25de67781",
+    "generation": "8a19bfefa9a0e8eb72b0597eb67cd6792d612e4b5a2bad61c24e5b9693517419",
     "ocr_required": [],
     "status": "ok"
   },
@@ -1138,11 +1138,11 @@
     "sources": [
       {
         "authority": "test",
-        "document_id": "a053cf9c5187e659dfa005fe1cb459e5609ffa5e7e42d43147e4dfd71f98b162",
+        "document_id": "346acfccd44d8c829600f46577b43bb0921225be155acb0ce87d628ffc8c5f9d",
         "indexed_status": "indexed",
         "kind": "pdf",
         "locator": "document",
-        "manifest_sha256": "93a913696eef4ce8e378e4a35bf3e5807aeaf1e8849368f179572d8520f908c1",
+        "manifest_sha256": "e45223984841f6613ae361b359f7e3e4be5d905090cfd21224f2d94ec3995e82",
         "ocr_required_pages": [],
         "path": "pdf/v1/guidelines.pdf",
         "precedence": 0,
@@ -1153,11 +1153,11 @@
       },
       {
         "authority": "test",
-        "document_id": "3fb2d586dce3d8e1cac57eda99502c5ec5971f6f96917327ea01d8de35712908",
+        "document_id": "6b92c6b15f19bd6cfb553678deeed2a31d3f385e4d718ff2698519046323c68d",
         "indexed_status": "indexed",
         "kind": "openapi",
         "locator": "document",
-        "manifest_sha256": "99060aa651b6ea4c881a48c9062ba2e032f4af648701e06258231bc78287aa33",
+        "manifest_sha256": "b5f5e11668ebe0d8887fc098400abc54f549d56c4b341c786dd3fe85e7641d55",
         "ocr_required_pages": [],
         "path": "openapi/v1/transactions.yaml",
         "precedence": 0,
@@ -1168,11 +1168,11 @@
       },
       {
         "authority": "test",
-        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
         "indexed_status": "indexed",
         "kind": "pdf",
         "locator": "document",
-        "manifest_sha256": "7a0569cb112c36f005d5fb1b9186dcdb5fa74f23a029aff64e2d09edfb4f342c",
+        "manifest_sha256": "7053e55f6af1cdc88a17cb6d44cb20033040e3fab444ecab876ba28b9a902649",
         "ocr_required_pages": [],
         "path": "pdf/v2/guidelines.pdf",
         "precedence": 0,
@@ -1183,11 +1183,11 @@
       },
       {
         "authority": "test",
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "indexed_status": "indexed",
         "kind": "openapi",
         "locator": "document",
-        "manifest_sha256": "8bb63200af48ba4ef8511b48aba5697717927d48c6e7b38b9ec297beaa4a611b",
+        "manifest_sha256": "3554c75dae26f3de18e446a3e686e2cf2d0af865879c17f6f65a0fec3f52034d",
         "ocr_required_pages": [],
         "path": "openapi/v2/transactions.yaml",
         "precedence": 0,
@@ -1198,11 +1198,11 @@
       },
       {
         "authority": "test",
-        "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+        "document_id": "36f25b3567762a9d5bfd681c6795c756f61841aa265879f6a8551a1c1197f888",
         "indexed_status": "indexed",
         "kind": "requirements",
         "locator": "document",
-        "manifest_sha256": "7581caec294340d1e7f807c765258256d34a79a086d80285116d402e0cc3dbcb",
+        "manifest_sha256": "bc6eab75b9acc85e49cd5de61fddcdc4445a371d60ff4410e6a4da01f835c327",
         "ocr_required_pages": [],
         "path": "requirements/requirements.yaml",
         "precedence": 0,
@@ -1283,7 +1283,7 @@
       ]
     },
     "description": "Synthetic V2 contract for deterministic regression testing.",
-    "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+    "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
     "kind": "openapi",
     "locator": "operation:GET:/accounts/{accountId}/transactions",
     "method": "GET",
@@ -1349,7 +1349,7 @@
     "version": "openfinance-v2"
   },
   "read_openapi_schema": {
-    "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+    "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
     "kind": "openapi",
     "locator": "json:#/components/schemas/Transaction",
     "name": "Transaction",
@@ -1392,8 +1392,8 @@
   "read_source": {
     "content": [
       {
-        "chunk_id": "1b8dc07731845dbf0794299c9084762d56bf41b5002dc340b6828fd367180e78",
-        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "chunk_id": "7632529e8025c48cf59c92c496a2b78d329b73a6f63cfb0afdef04bd83286bcc",
+        "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
         "kind": "pdf",
         "locator": "page:1",
         "page": 1,
@@ -1410,11 +1410,11 @@
     "exact_location": "page:1",
     "source": {
       "authority": "test",
-      "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+      "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
       "indexed_status": "indexed",
       "kind": "pdf",
       "locator": "document",
-      "manifest_sha256": "7a0569cb112c36f005d5fb1b9186dcdb5fa74f23a029aff64e2d09edfb4f342c",
+      "manifest_sha256": "7053e55f6af1cdc88a17cb6d44cb20033040e3fab444ecab876ba28b9a902649",
       "ocr_required_pages": [],
       "path": "pdf/v2/guidelines.pdf",
       "precedence": 0,
@@ -1427,9 +1427,9 @@
   "search_specification": {
     "results": [
       {
-        "chunk_id": "55c78e69d927976cfede0c9944c6ba5154c38c62f4fa87c3c97cd384dbfdd30a",
+        "chunk_id": "1cd939b03b70f63703d42e9f2caea22d173488e5a43866cff9a318f2b905eb48",
         "classification": "discovered evidence; not an authoritative requirement",
-        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
         "kind": "pdf",
         "locator": "page:1:chars:103-350",
         "page": 1,
@@ -1520,7 +1520,7 @@
           ]
         },
         "description": "Synthetic V2 contract for deterministic regression testing.",
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "operation:GET:/accounts/{accountId}/transactions",
         "method": "GET",
@@ -1588,8 +1588,8 @@
     ],
     "related_evidence": [
       {
-        "chunk_id": "1b8dc07731845dbf0794299c9084762d56bf41b5002dc340b6828fd367180e78",
-        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "chunk_id": "7632529e8025c48cf59c92c496a2b78d329b73a6f63cfb0afdef04bd83286bcc",
+        "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
         "kind": "pdf",
         "locator": "page:1",
         "page": 1,
@@ -1602,8 +1602,8 @@
         "version": "openfinance-v2"
       },
       {
-        "chunk_id": "508f3280ce4073bc23ccaf0d292c279cffca82eb4bad49ba0833a6638ccc298d",
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "chunk_id": "c5ce7bc6082bdd741131554e29875250699ad4df637265439598311368203df5",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "path:/accounts/{accountId}/transactions",
         "page": null,
@@ -1630,7 +1630,7 @@
       ],
       "id": "FIXTURE-OFV2-TRANSACTIONS-001",
       "provenance": {
-        "document_id": "545669e21756653f8924d01ae9f04e9601bef416055729818e59f0ae02affa17",
+        "document_id": "36f25b3567762a9d5bfd681c6795c756f61841aa265879f6a8551a1c1197f888",
         "kind": "requirements",
         "locator": "requirement:FIXTURE-OFV2-TRANSACTIONS-001",
         "sha256": "c4c7ea00ad054ac5ea25c03ea8cdf89061dd0f26e8089aed88235515bd31c7c2",
@@ -1639,7 +1639,7 @@
       },
       "resolved_sources": [
         {
-          "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+          "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
           "kind": "pdf",
           "locator": "page:1",
           "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
@@ -1647,7 +1647,7 @@
           "version": "openfinance-v2"
         },
         {
-          "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+          "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
           "kind": "openapi",
           "locator": "path:/accounts/{accountId}/transactions",
           "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",
@@ -1670,7 +1670,7 @@
     },
     "schemas": [
       {
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "json:#/components/schemas/Amount",
         "name": "Amount",
@@ -1694,7 +1694,7 @@
         "version": "openfinance-v2"
       },
       {
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "json:#/components/schemas/Transaction",
         "name": "Transaction",
@@ -1737,7 +1737,7 @@
     ],
     "specification_sources": [
       {
-        "document_id": "82fe005fbe600656cba6437e4a71fc064eab996dd5b14fc4620db450cf44df20",
+        "document_id": "87880d97a98905eba4ef2ec4919ba543f6476c0cef5b36d944fe2cac580ea7c9",
         "kind": "pdf",
         "locator": "page:1",
         "sha256": "7404cc12f7c3ca2b5409bc114be1790377759566ec8a63b7a5304b5e96e24a10",
@@ -1745,7 +1745,7 @@
         "version": "openfinance-v2"
       },
       {
-        "document_id": "c813db7c03cea924a90583e5cc58ed46877235f93fbf8077f9b4c58e623b279f",
+        "document_id": "9a154a982e2dbd960606167217db75bfe810d99a82a15ea24b8e0e475679c2fd",
         "kind": "openapi",
         "locator": "path:/accounts/{accountId}/transactions",
         "sha256": "3aac50d3f9d74840de842236175696f2272d326a9ee40abd27037ae15f5bae54",

@@ -93,14 +93,14 @@ compatibility verdict. Complete requests/results are in `examples/`.
 
 ```bash
 cargo fmt --check
-cargo clippy --all-targets --all-features -- -D warnings
+cargo clippy --workspace --all-targets --all-features -- -D warnings
 cargo test --workspace
+cargo deny check
 cargo build --release
 ```
 
-`Cargo.lock` is part of the deliverable. In particular, `office_oxide` is locked
-to 0.1.9 because the current 0.1.12 transitive release adds a `DocumentIR` field
-that breaks `pdf_oxide` 0.3.78. Do not blindly update that dependency. All
+`Cargo.lock` is part of the deliverable; update it deliberately and re-run the
+extraction and acceptance checks (see `CONTRIBUTING.md`). All
 requested architectural dependencies remain in use, including current stable
 `rmcp`, `pdf_oxide`, `openapiv3`, `serde-saphyr`, Tantivy, SQLx, and SHA-256.
 

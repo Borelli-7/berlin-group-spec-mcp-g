@@ -8,15 +8,28 @@ typed, source-traceable, and accompanied by relevant deterministic tests.
 
 ```bash
 cargo fmt --check
-cargo clippy --all-targets --all-features -- -D warnings
+cargo clippy --workspace --all-targets --all-features -- -D warnings
 cargo test --workspace
+cargo deny check
 cargo build --release
 ./target/release/bg-spec index --config config/config.toml
 ./target/release/bg-spec doctor --config config/config.toml
 python3 scripts/mcp_smoke.py
 ```
 
-Use `--locked` in reproducible release pipelines. For a focused iteration:
+Use `--locked` in reproducible release pipelines. CI
+(`.github/workflows/ci.yml`) runs fmt, clippy, tests and `cargo deny`.
+
+Lints are configured once in the root `Cargo.toml` (`[workspace.lints]`):
+`clippy::pedantic` is enabled with a small, documented allow-list, so new code
+must be pedantic-clean. Prefer a scoped `#[allow(lint, reason = "...")]` over
+widening the workspace allow-list. Dependency policy (advisories, licences,
+sources) lives in `deny.toml`; every ignored advisory needs a `reason`.
+
+Errors: library crates return the typed `bg_spec_core::Error` and keep the
+underlying cause via `#[source]` (use `Error::storage(e)` instead of
+stringifying). Binaries use `anyhow` with `.context(...)` and print the full
+cause chain. For a focused iteration:
 
 ```bash
 cargo test -p bg-spec-indexer --test acceptance
@@ -63,11 +76,15 @@ format and pipeline revisions when changing stored semantics; publish a fresh
 generation. Never migrate a live immutable generation in place. After updating
 tokenizers, parsers, or normalization, invalidate reused document extraction.
 
-The known upstream constraint is `pdf_oxide` 0.3.78 with `office_oxide` 0.1.9.
-`office_oxide` 0.1.12 does not compile with this PDF release. Remove the lock
-constraint only after confirming a compatible release and rerunning extraction,
-acceptance, and release builds. This is an upstream API compatibility pin, not
-a replacement of the required PDF implementation.
+`pdf_oxide` 0.3.78 previously required pinning `office_oxide` to 0.1.9. That
+pin is no longer needed: the locked `office_oxide` 0.1.16 compiles and passes
+extraction, acceptance and release builds. Re-run those checks after any
+`pdf_oxide`/`office_oxide` update. `ttf-parser` (via `pdf_oxide`) is flagged as
+unmaintained (RUSTSEC-2026-0192) and is ignored in `deny.toml` until upstream
+moves off it.
+
+The indexer lock uses `std::fs::File::try_lock` (no `fs2`). Pipeline revision
+`bg-spec-pipeline-3` followed the `serde-saphyr` 2 and Tantivy 0.27 upgrades.
 
 ## Explicit limitations to preserve or improve
 

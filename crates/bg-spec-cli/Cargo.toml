@@ -3,12 +3,15 @@ name = "bg-spec-cli"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
 
 [[bin]]
 name = "bg-spec"
 path = "src/main.rs"
 
 [dependencies]
+anyhow.workspace = true
 bg-spec-core = { path = "../bg-spec-core" }
 bg-spec-indexer = { path = "../bg-spec-indexer" }
 bg-spec-store = { path = "../bg-spec-store" }

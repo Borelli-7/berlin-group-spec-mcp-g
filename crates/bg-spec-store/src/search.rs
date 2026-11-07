@@ -1,5 +1,5 @@
 use async_trait::async_trait;
-use bg_spec_core::*;
+use bg_spec_core::{Error, EvidenceChunk, Result, SearchFilter, SearchRepository};
 use std::{path::Path, sync::Arc};
 use tantivy::{
     Index, IndexReader, ReloadPolicy, TantivyDocument, Term,
@@ -11,10 +11,6 @@ use tantivy::{
     schema::{FAST, Field, IndexRecordOption, STORED, STRING, Schema, TEXT, Value},
     tokenizer::TokenStream,
 };
-
-fn storage(error: impl std::fmt::Display) -> Error {
-    Error::Storage(error.to_string())
-}
 
 #[derive(Clone)]
 struct Fields {
@@ -58,10 +54,10 @@ impl TantivySearch {
     pub fn build(path: &Path, chunks: &[EvidenceChunk], generation: &str) -> Result<()> {
         std::fs::create_dir_all(path)?;
         let (schema, fields) = schema();
-        let index = Index::create_in_dir(path, schema).map_err(storage)?;
+        let index = Index::create_in_dir(path, schema).map_err(Error::storage)?;
         let mut writer = index
             .writer_with_num_threads::<TantivyDocument>(1, 32_000_000)
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         for chunk in chunks.iter().filter(|c| c.searchable) {
             let mut document = TantivyDocument::default();
             document.add_text(fields.id, &chunk.chunk_id);
@@ -72,20 +68,25 @@ impl TantivySearch {
             document.add_u64(fields.page, u64::from(chunk.page.unwrap_or(0)));
             document.add_text(fields.title, &chunk.title);
             document.add_text(fields.content, &chunk.text);
-            writer.add_document(document).map_err(storage)?;
+            writer.add_document(document).map_err(Error::storage)?;
         }
-        let mut commit = writer.prepare_commit().map_err(storage)?;
+        let mut commit = writer.prepare_commit().map_err(Error::storage)?;
         commit.set_payload(generation);
-        commit.commit().map_err(storage)?;
-        writer.wait_merging_threads().map_err(storage)?;
+        commit.commit().map_err(Error::storage)?;
+        writer.wait_merging_threads().map_err(Error::storage)?;
         Ok(())
     }
 
     pub fn open(path: &Path, generation: &str) -> Result<Self> {
-        let index = Index::open_in_dir(path).map_err(storage)?;
+        let index = Index::open_in_dir(path).map_err(Error::storage)?;
         let (expected, fields) = schema();
         if index.schema() != expected
-            || index.load_metas().map_err(storage)?.payload.as_deref() != Some(generation)
+            || index
+                .load_metas()
+                .map_err(Error::storage)?
+                .payload
+                .as_deref()
+                != Some(generation)
         {
             return Err(Error::Integrity(
                 "search schema/generation mismatch; re-index".into(),
@@ -95,7 +96,7 @@ impl TantivySearch {
             .reader_builder()
             .reload_policy(ReloadPolicy::Manual)
             .try_into()
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         Ok(Self {
             inner: Arc::new(SearchInner {
                 index,
@@ -113,10 +114,10 @@ impl TantivySearch {
         let searcher = self.inner.reader.searcher();
         let addresses = searcher
             .search(&AllQuery, &DocSetCollector)
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         let mut ids = Vec::with_capacity(addresses.len());
         for address in addresses {
-            let document: TantivyDocument = searcher.doc(address).map_err(storage)?;
+            let document: TantivyDocument = searcher.doc(address).map_err(Error::storage)?;
             let id = document
                 .get_first(self.inner.fields.id)
                 .and_then(|value| value.as_str())
@@ -141,7 +142,7 @@ impl TantivySearch {
             .inner
             .index
             .tokenizer_for_field(fields.content)
-            .map_err(storage)?;
+            .map_err(Error::storage)?;
         let mut stream = tokenizer.token_stream(query);
         let mut terms = std::collections::BTreeSet::new();
         while let Some(token) = stream.next() {
@@ -191,10 +192,12 @@ impl TantivySearch {
             (SortBySimilarityScore, tantivy::Order::Desc),
             (SortByString::for_field("chunk_id"), tantivy::Order::Asc),
         ));
-        let hits = searcher.search(&query, &collector).map_err(storage)?;
+        let hits = searcher
+            .search(&query, &collector)
+            .map_err(Error::storage)?;
         let mut results = Vec::new();
         for ((score, _), address) in hits {
-            let document: TantivyDocument = searcher.doc(address).map_err(storage)?;
+            let document: TantivyDocument = searcher.doc(address).map_err(Error::storage)?;
             let id = document
                 .get_first(fields.id)
                 .and_then(|v| v.as_str())
@@ -218,6 +221,6 @@ impl SearchRepository for TantivySearch {
         let query = query.to_owned();
         tokio::task::spawn_blocking(move || search.search_sync(&query, filter, limit))
             .await
-            .map_err(storage)?
+            .map_err(Error::storage)?
     }
 }

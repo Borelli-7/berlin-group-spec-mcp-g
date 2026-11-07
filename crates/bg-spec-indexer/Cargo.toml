@@ -3,11 +3,12 @@ name = "bg-spec-indexer"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
 
 [dependencies]
 bg-spec-core = { path = "../bg-spec-core" }
 bg-spec-store = { path = "../bg-spec-store" }
-fs2.workspace = true
 openapiv3.workspace = true
 pdf_oxide.workspace = true
 serde.workspace = true

@@ -1,4 +1,8 @@
-use crate::{comparison::structural_diff, *};
+use crate::{
+    CatalogRepository, Comparison, Conflict, DocumentKind, EndpointRef, Error, EvidenceBundle,
+    OpenApiOperation, OpenApiSchema, RequirementTrace, Result, SearchFilter, SearchRepository,
+    SearchResult, comparison, comparison::structural_diff,
+};
 use serde_json::{Value, json};
 use std::{
     collections::{BTreeMap, BTreeSet},
@@ -428,6 +432,19 @@ impl RequirementService {
     }
 }
 
+async fn optional_endpoint(
+    service: &SpecificationService,
+    version: &str,
+    path: &str,
+    method: &str,
+) -> Result<Option<OpenApiOperation>> {
+    match service.endpoint(version, path, method).await {
+        Ok(operation) => Ok(Some(operation)),
+        Err(Error::NotFound(_)) => Ok(None),
+        Err(error) => Err(error),
+    }
+}
+
 #[derive(Clone)]
 pub struct CompatibilityService {
     pub specifications: SpecificationService,
@@ -459,20 +476,8 @@ impl CompatibilityService {
                 )));
             }
         }
-        async fn optional(
-            service: &SpecificationService,
-            version: &str,
-            path: &str,
-            method: &str,
-        ) -> Result<Option<OpenApiOperation>> {
-            match service.endpoint(version, path, method).await {
-                Ok(operation) => Ok(Some(operation)),
-                Err(Error::NotFound(_)) => Ok(None),
-                Err(error) => Err(error),
-            }
-        }
-        let before = optional(&self.specifications, version1, path, method).await?;
-        let after = optional(&self.specifications, version2, path, method).await?;
+        let before = optional_endpoint(&self.specifications, version1, path, method).await?;
+        let after = optional_endpoint(&self.specifications, version2, path, method).await?;
         if before.is_none() && after.is_none() {
             return Err(Error::NotFound("endpoint absent in both versions".into()));
         }

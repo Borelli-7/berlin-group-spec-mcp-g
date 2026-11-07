@@ -433,7 +433,7 @@ async fn doctor_checks_full_pages_manifest_drift_and_writer_lock() {
         .write(true)
         .open(config.data_dir.join("index.lock"))
         .unwrap();
-    fs2::FileExt::try_lock_exclusive(&lock).unwrap();
+    lock.try_lock().unwrap();
     assert!(
         index(&config)
             .await
@@ -553,13 +553,6 @@ fn metadata(config: &Config) -> Document {
 
 #[test]
 fn pdf_extraction_and_injected_extractor() {
-    let (_temp, config) = support::fixture();
-    let bytes = fs::read(config.corpus_dir.join("pdf/v2/guidelines.pdf")).unwrap();
-    let pages = PdfOxideExtractor.extract(&bytes).unwrap();
-    assert_eq!(pages.len(), 2);
-    assert_eq!(pages[0].number, 1);
-    assert!(pages[0].text.contains("MUST include transactionId"));
-    assert!(PdfOxideExtractor.extract(b"not a pdf").is_err());
     struct Fake;
     impl PdfExtractor for Fake {
         fn extract(&self, _: &[u8]) -> Result<Vec<bg_spec_indexer::pdf::PdfPage>> {
@@ -569,6 +562,13 @@ fn pdf_extraction_and_injected_extractor() {
             }])
         }
     }
+    let (_temp, config) = support::fixture();
+    let bytes = fs::read(config.corpus_dir.join("pdf/v2/guidelines.pdf")).unwrap();
+    let pages = PdfOxideExtractor.extract(&bytes).unwrap();
+    assert_eq!(pages.len(), 2);
+    assert_eq!(pages[0].number, 1);
+    assert!(pages[0].text.contains("MUST include transactionId"));
+    assert!(PdfOxideExtractor.extract(b"not a pdf").is_err());
     let indexed = parse_pdf(metadata(&config), b"", &Fake, &config).unwrap();
     assert_eq!(indexed.chunks[0].text, "Exact normative paragraph.");
     assert_eq!(indexed.chunks[0].provenance.locator.0, "page:1");
@@ -579,14 +579,14 @@ fn openapi_normalization_references_and_inheritance() {
     let (_temp, config) = support::fixture();
     let yaml = fs::read_to_string(config.corpus_dir.join("openapi/v2/transactions.yaml")).unwrap();
     let document = metadata(&config);
-    let indexed = parse_openapi(document.clone(), yaml.as_bytes(), &config).unwrap();
+    let indexed = parse_openapi(&document, yaml.as_bytes(), &config).unwrap();
     assert_eq!(indexed.operations.len(), 1);
     assert_eq!(indexed.schemas.len(), 2);
     let changed = yaml.replace(
         "      operationId:",
         "      security: []\n      operationId:",
     );
-    let parsed = parse_openapi(document.clone(), changed.as_bytes(), &config).unwrap();
+    let parsed = parse_openapi(&document, changed.as_bytes(), &config).unwrap();
     assert_eq!(parsed.operations[0].security, json!([]));
     assert!(
         parsed.operations[0].contract["securitySchemes"]
@@ -599,16 +599,16 @@ fn openapi_normalization_references_and_inheritance() {
         "https://example.invalid/schema.yaml",
     );
     assert!(
-        parse_openapi(document.clone(), external.as_bytes(), &config)
+        parse_openapi(&document, external.as_bytes(), &config)
             .unwrap_err()
             .to_string()
             .contains("external")
     );
     let dangling = yaml.replace("#/components/schemas/Amount", "#/components/schemas/Absent");
-    assert!(parse_openapi(document.clone(), dangling.as_bytes(), &config).is_err());
+    assert!(parse_openapi(&document, dangling.as_bytes(), &config).is_err());
     let unsupported = yaml.replace("3.0.3", "3.1.0");
     assert!(
-        parse_openapi(document, unsupported.as_bytes(), &config)
+        parse_openapi(&document, unsupported.as_bytes(), &config)
             .unwrap_err()
             .to_string()
             .contains("3.0.x")

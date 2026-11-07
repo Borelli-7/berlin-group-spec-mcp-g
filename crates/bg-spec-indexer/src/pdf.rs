@@ -1,5 +1,5 @@
 use crate::chunking::{chunk_text, evidence};
-use bg_spec_core::*;
+use bg_spec_core::{Config, Document, Error, IndexedDocument, IndexedStatus, Result};
 
 pub struct PdfPage {
     pub number: u32,
@@ -34,10 +34,9 @@ impl PdfExtractor for PdfOxideExtractor {
                     "extracted PDF text exceeds page/document limits".into(),
                 ));
             }
-            pages.push(PdfPage {
-                number: (index + 1) as u32,
-                text,
-            });
+            let number = u32::try_from(index + 1)
+                .map_err(|_| Error::Extraction("PDF page number exceeds u32".into()))?;
+            pages.push(PdfPage { number, text });
         }
         Ok(pages)
     }

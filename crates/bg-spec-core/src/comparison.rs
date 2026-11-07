@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{ChangeKind, CompatibilityChange, Provenance};
 use serde_json::Value;
 use std::collections::BTreeSet;
 
@@ -111,6 +111,7 @@ pub fn schema_references(value: &Value) -> Vec<String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::sha256;
     use serde_json::json;
 
     #[test]

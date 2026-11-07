@@ -1,3 +1,9 @@
 /target/
 /data/
 *.tmp
+
+# Symposium (cargo-agents) generated agent configuration
+/.agents/
+/.claude/
+/.codex/
+/.github/hooks/symposium.json

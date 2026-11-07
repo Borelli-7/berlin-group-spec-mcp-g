@@ -3,9 +3,12 @@ use crate::{
     openapi::parse_openapi,
     pdf::{PdfOxideExtractor, parse_pdf},
 };
-use bg_spec_core::{config::corpus_path, *};
+use bg_spec_core::{
+    CatalogRepository, Config, Document, DocumentKind, EndpointRef, Error, IndexedDocument,
+    IndexedStatus, Manifest, ManifestEntry, Provenance, Requirement, RequirementFile, Result,
+    SourceLocator, config, config::corpus_path, sha256, validate_endpoint, validate_text,
+};
 use bg_spec_store::{Snapshot, SqliteCatalog, TantivySearch};
-use fs2::FileExt;
 use serde::Serialize;
 use std::{
     collections::{BTreeMap, BTreeSet},
@@ -16,7 +19,7 @@ use std::{
 use walkdir::WalkDir;
 
 // Bump whenever extraction/normalization/index semantics change.
-const PIPELINE_VERSION: &str = "bg-spec-pipeline-2";
+const PIPELINE_VERSION: &str = "bg-spec-pipeline-3";
 
 #[derive(Debug, Serialize)]
 pub struct IndexReport {
@@ -103,7 +106,7 @@ pub async fn verify_sources(config: &Config, catalog: &dyn CatalogRepository) ->
         let hash =
             tokio::task::spawn_blocking(move || read_bounded(&path, max).map(|b| sha256(&b)))
                 .await
-                .map_err(|e| Error::Storage(e.to_string()))??;
+                .map_err(Error::storage)??;
         if hash != document.provenance.sha256
             || manifest_hash(entry, config)? != document.manifest_sha256
         {
@@ -124,8 +127,7 @@ pub async fn index(config: &Config) -> Result<IndexReport> {
         .create(true)
         .truncate(false)
         .open(config.data_dir.join("index.lock"))?;
-    lock.try_lock_exclusive()
-        .map_err(|e| Error::Storage(format!("indexer lock: {e}")))?;
+    lock.try_lock().map_err(Error::Locked)?;
     let manifest_path = corpus_path(&config.corpus_dir, &config.manifest)?;
     let manifest = parse_manifest(&read_bounded(&manifest_path, config.max_document_bytes)?)?;
     let listed: BTreeSet<_> = manifest
@@ -215,7 +217,7 @@ pub async fn index(config: &Config) -> Result<IndexReport> {
         }
         let config = config.clone();
         let parsed = tokio::task::spawn_blocking(move || match document.provenance.kind {
-            DocumentKind::Openapi => parse_openapi(document, &bytes, &config),
+            DocumentKind::Openapi => parse_openapi(&document, &bytes, &config),
             DocumentKind::Pdf => parse_pdf(document, &bytes, &PdfOxideExtractor, &config),
             DocumentKind::Requirements => Ok(IndexedDocument {
                 document: Some(document),
@@ -291,7 +293,7 @@ pub async fn index(config: &Config) -> Result<IndexReport> {
         let id = generation.clone();
         tokio::task::spawn_blocking(move || TantivySearch::build(&search_path, &chunks, &id))
             .await
-            .map_err(|e| Error::Storage(e.to_string()))??;
+            .map_err(Error::storage)??;
         sync_tree(staging.path())?;
         std::fs::rename(staging.path(), &final_path)?;
         File::open(config.data_dir.join("generations"))?.sync_all()?;
@@ -446,6 +448,7 @@ fn resolve_requirements(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use bg_spec_core::DocumentAuthority;
     #[test]
     fn manifest_validation_is_explicit() {
         let valid = b"sources:\n  - id: guidelines\n    kind: pdf\n    version: v2\n    authority: normative\n    precedence: 100\n    path: pdf/guidelines.pdf\n";
